@@ -1,0 +1,121 @@
+{
+ "ashley_x_from_figure": {
+  "AM Crops": [
+   7,
+   2,
+   12
+  ],
+  "AM Natural Grasses": [
+   20,
+   1,
+   40
+  ],
+  "AM Trees and Shrubs": [
+   62,
+   42,
+   80
+  ],
+  "EcM Broadleaf Trees and Shrubs": [
+   40,
+   22,
+   60
+  ],
+  "EcM Needle-leaf Trees and Shrubs": [
+   22,
+   10,
+   38
+  ],
+  "ECM Deciduous Needle Trees": [
+   15,
+   7,
+   28
+  ],
+  "ECM Evergreen Needle Trees": [
+   25,
+   8,
+   60
+  ]
+ },
+ "elm_groups": {
+  "AM Crops": {
+   "n": 80,
+   "mycC": 14.571796711271771,
+   "p10": 4.946327963120173,
+   "p90": 26.33015918242284,
+   "pctNPP": 5.87662497154588,
+   "cost_sum": 1.808672090097735,
+   "pct_gross": 4.663312751697321,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "AM Natural Grasses": {
+   "n": 440,
+   "mycC": 108.20743940333833,
+   "p10": 5.235452426658121,
+   "p90": 247.9231498576751,
+   "pctNPP": 34.48970855933176,
+   "cost_sum": 1.074118247910618,
+   "pct_gross": 17.09071925226596,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "AM Trees and Shrubs": {
+   "n": 588,
+   "mycC": 33.12378772345533,
+   "p10": 9.839308003686027,
+   "p90": 60.53406388332622,
+   "pctNPP": 8.962229867485657,
+   "cost_sum": 2.9369577601291414,
+   "pct_gross": 5.664406171701824,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "EcM Broadleaf Trees and Shrubs": {
+   "n": 299,
+   "mycC": 5.4944973989549855,
+   "p10": 2.1856307566842235,
+   "p90": 5.9443624025580055,
+   "pctNPP": 2.965896594045207,
+   "cost_sum": 6.101098872400454,
+   "pct_gross": 2.335294934661267,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "EcM Needle-leaf Trees and Shrubs": {
+   "n": 593,
+   "mycC": 6.245554496680667,
+   "p10": 2.188034262628088,
+   "p90": 14.541594000836168,
+   "pctNPP": 2.4815295751036808,
+   "cost_sum": 5.915962184322727,
+   "pct_gross": 2.2001879515622758,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "ECM Deciduous Needle Trees": {
+   "n": 39,
+   "mycC": 1.5723781236467678,
+   "p10": 0.7519721326046696,
+   "p90": 2.109254431827623,
+   "pctNPP": 0.9389774719474289,
+   "cost_sum": 15.262064426256515,
+   "pct_gross": 0.8565545276193,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "ECM Evergreen Needle Trees": {
+   "n": 554,
+   "mycC": 6.574883092163455,
+   "p10": 2.531064898597432,
+   "p90": 15.083945722340658,
+   "pctNPP": 2.590236475301771,
+   "cost_sum": 5.257322646911825,
+   "pct_gross": 2.294876632884953,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  },
+  "(mixed 50/50) BDT temperate": {
+   "n": 121,
+   "mycC": 16.893244857179354,
+   "p10": 5.133082305306137,
+   "p90": 27.290937744179637,
+   "pctNPP": 4.734206065820185,
+   "cost_sum": 1.2507470840934718,
+   "pct_gross": 3.731380542334543,
+   "note": "2022 tree books full FUN cost into AR; %gross uses NPP+NPP_NUPTAKE+NPP_PUPTAKE"
+  }
+ }
+}
