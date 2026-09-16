@@ -110,3 +110,5 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
   `ccsi` account cap likely prevents two 576-task jobs concurrently. If so, chains run SEQUENTIALLY (~11-12 d each at
   ~55-65 sim-yr/day). Options under evaluation: (a) accept sequential; (b) fewer tasks per chain to fit two under the cap
   (throughput per chain drops, but parallel); (c) burst partition with 2-day chunked restarts (REST_N=20 supports it).
+- **SCOPE DECISION (user, 2026-09-16 ~17:00): ALL corrections bundled — A (param swap) + B (PFT typo) + C (s_fix override
+  removed), exactly as the BNFMIP fix. Two chains: control vs corrected(ABC). A+B-only chain cancelled (jobs 5684725-28, never ran).**
