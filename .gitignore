@@ -1,0 +1,5 @@
+*.r.*.nc
+*.h0.*.nc
+*.h1.*.nc
+*.log
+__pycache__/
