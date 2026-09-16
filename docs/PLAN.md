@@ -45,3 +45,15 @@ Corrected-vs-control differs by exactly 6 diff lines (3 physics lines).
 - Post-creation: `runs/verify_cases.sh <prefix>` (templates v6 namelists, checks all .nc paths, env, SourceMods md5,
   normalized diff vs v6). Submission: `runs/submit_chain.sh <prefix>` (one long job per phase, afterok chaining,
   email END/FAIL to renatob@caltech.edu). Neither run yet.
+- **Compile test failure #1 (P1) — root cause & fix.** PIO's cmake probes failed with
+  `undefined reference to H5Pset_dxpl_mpio …` -> `size_t and long long must be the same size!`.
+  Cause: the spack `netcdf-c-4.9.2-mpi-h5f` library links *parallel* HDF5; cmake's `try_compile` links only
+  `libnetcdf.so`, and GNU ld resolves its NEEDED `libhdf5.so.310` via `LD_LIBRARY_PATH` (which the cades config
+  puts `~/miniconda3/lib` first on) *before* the library's own RUNPATH -> binds to miniconda's **serial** HDF5 ->
+  MPI symbols missing. The July/Sept-8 silent-tree build passed because its PIO cache had
+  `CMAKE_EXE_LINKER_FLAGS=-L<hdf5>/lib -lhdf5_hl -lhdf5 -lz -ldl -lm`, seeded by an `LDFLAGS` **exported by hand
+  in that shell** (present in no config or script; the July recipe omitted it). Fix (tracked): add
+  `<env name="LDFLAGS">-L$ENV{OLCF_HDF5_ROOT}/lib -lhdf5_hl -lhdf5 -lz -ldl -lm</env>` to the `cades` machine block
+  (`config_machines.xml`; pre-fix copy kept as `*.ported_prefix_20260916`). Relaunched (RELAUNCH-3).
+- Note for later: July case Macros used `-mcmodel=medium`; current config gives `small`. If the global link hits
+  "relocation truncated to fit", switch CFLAGS to `-mcmodel=medium`.
