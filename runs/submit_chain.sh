@@ -8,7 +8,7 @@ AD=${P}_f19_f19_ICB1850CNRDCTCBC_ad_spinup; FN=${P}_f19_f19_ICB1850CNPRDCTCBC; T
 LOG=/home/braghiere/ELM-FUN-2022-corrigendum/runs/submit_${P}.log
 sub(){ # $1=case $2=dependency-jobid-or-empty
   cd $CR/$1
-  ./xmlchange JOB_WALLCLOCK_TIME=$WALL,RESUBMIT=0,CONTINUE_RUN=FALSE
+  ./xmlchange JOB_WALLCLOCK_TIME=$WALL,RESUBMIT=0,CONTINUE_RUN=FALSE,REST_N=20,REST_OPTION=nyears
   ./xmlchange --subgroup case.run BATCH_COMMAND_FLAGS="--mail-user=$MAIL --mail-type=END,FAIL" 2>/dev/null || true
   local dep=""; [ -n "$2" ] && dep="--prereq $2"
   local out; out=$(./case.submit $dep 2>&1); echo "$out" >> $LOG
@@ -16,6 +16,9 @@ sub(){ # $1=case $2=dependency-jobid-or-empty
 }
 echo "=== submit chain $P  $(date)" | tee -a $LOG
 J_AD=$(sub $AD "");      echo "  AD $AD -> job $J_AD"  | tee -a $LOG
-J_FN=$(sub $FN "$J_AD"); echo "  FN $FN -> job $J_FN (afterok $J_AD)" | tee -a $LOG
+RR=/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs
+J_ADJ=$(sbatch --parsable -d afterok:$J_AD --mail-user=$MAIL --mail-type=FAIL $(dirname $0)/adjust_restart.sbatch $AD $RR)
+echo "  ADJ adjust_restart -> job $J_ADJ (afterok $J_AD)" | tee -a $LOG
+J_FN=$(sub $FN "$J_ADJ"); echo "  FN $FN -> job $J_FN (afterok $J_ADJ)" | tee -a $LOG
 J_TR=$(sub $TR "$J_FN"); echo "  TR $TR -> job $J_TR (afterok $J_FN)" | tee -a $LOG
-echo "$P AD=$J_AD FN=$J_FN TR=$J_TR" >> /home/braghiere/ELM-FUN-2022-corrigendum/runs/jobids.txt
+echo "$P AD=$J_AD ADJ=$J_ADJ FN=$J_FN TR=$J_TR" >> /home/braghiere/ELM-FUN-2022-corrigendum/runs/jobids.txt
