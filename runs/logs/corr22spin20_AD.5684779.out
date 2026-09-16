@@ -1,24 +1,24 @@
-START AD corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup Wed Sep 16 18:01:00 EDT 2026
+START AD corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup Wed Sep 16 18:16:50 EDT 2026
 Creating component namelists
-  2026-09-16 18:01:01 atm
+  2026-09-16 18:16:50 atm
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 18:01:01 lnd
+  2026-09-16 18:16:50 lnd
    Calling /home/braghiere/E3SM_latest/E3SM/components/clm/cime_config/buildnml
-  2026-09-16 18:01:01 ice
+  2026-09-16 18:16:51 ice
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 18:01:01 ocn
+  2026-09-16 18:16:51 ocn
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 18:01:01 rof
+  2026-09-16 18:16:51 rof
    Calling /home/braghiere/E3SM_latest/E3SM/components/mosart/cime_config/buildnml
-  2026-09-16 18:01:01 glc
+  2026-09-16 18:16:51 glc
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 18:01:01 wav
+  2026-09-16 18:16:51 wav
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 18:01:02 iac
+  2026-09-16 18:16:51 iac
    Running /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 18:01:02 esp
+  2026-09-16 18:16:51 esp
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 18:01:02 cpl
+  2026-09-16 18:16:51 cpl
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
 Checking that inputdata is available as part of case submission
@@ -30,42 +30,41 @@ Check case OK
 submit_jobs case.run
 Submit job case.run
 Starting job script case.run
-2026-09-16 18:01:02 CASE.RUN BEGINS HERE
-2026-09-16 18:01:02 RUN_MODEL BEGINS HERE
-2026-09-16 18:01:02 PRE_RUN_CHECK BEGINS HERE
-2026-09-16 18:01:03 NAMELIST CREATION BEGINS HERE
+2026-09-16 18:16:52 CASE.RUN BEGINS HERE
+2026-09-16 18:16:52 RUN_MODEL BEGINS HERE
+2026-09-16 18:16:52 PRE_RUN_CHECK BEGINS HERE
+2026-09-16 18:16:53 NAMELIST CREATION BEGINS HERE
 Generating namelists for /home/braghiere/E3SM_latest/E3SM/cime/scripts/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup
 Creating component namelists
-  2026-09-16 18:01:03 atm
+  2026-09-16 18:16:53 atm
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 18:01:03 lnd
+  2026-09-16 18:16:53 lnd
    Calling /home/braghiere/E3SM_latest/E3SM/components/clm/cime_config/buildnml
-  2026-09-16 18:01:03 ice
+  2026-09-16 18:16:53 ice
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 18:01:03 ocn
+  2026-09-16 18:16:53 ocn
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 18:01:03 rof
+  2026-09-16 18:16:53 rof
    Calling /home/braghiere/E3SM_latest/E3SM/components/mosart/cime_config/buildnml
-  2026-09-16 18:01:03 glc
+  2026-09-16 18:16:53 glc
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 18:01:03 wav
+  2026-09-16 18:16:53 wav
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 18:01:03 iac
+  2026-09-16 18:16:53 iac
    Running /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 18:01:03 esp
+  2026-09-16 18:16:53 esp
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 18:01:03 cpl
+  2026-09-16 18:16:53 cpl
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
-2026-09-16 18:01:04 NAMELIST CREATION HAS FINISHED
+2026-09-16 18:16:54 NAMELIST CREATION HAS FINISHED
 -------------------------------------------------------------------------
  - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run
  - Case input data directory (DIN_LOC_ROOT) is /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata 
  - Checking for required input datasets in DIN_LOC_ROOT
 -------------------------------------------------------------------------
-2026-09-16 18:01:04 PRE_RUN_CHECK HAS FINISHED
+2026-09-16 18:16:54 PRE_RUN_CHECK HAS FINISHED
 run command is srun  -n 384  --cpu-bind=cores /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/bld/e3sm.exe   >> e3sm.log.$LID 2>&1  
-2026-09-16 18:01:04 SAVE_PRERUN_PROVENANCE BEGINS HERE
-2026-09-16 18:01:04 SAVE_PRERUN_PROVENANCE HAS FINISHED
-2026-09-16 18:01:04 MODEL EXECUTION BEGINS HERE
-slurmstepd: error: *** JOB 5684763 ON or-condo-c178 CANCELLED AT 2026-09-16T18:16:35 ***
+2026-09-16 18:16:54 SAVE_PRERUN_PROVENANCE BEGINS HERE
+2026-09-16 18:16:54 SAVE_PRERUN_PROVENANCE HAS FINISHED
+2026-09-16 18:16:54 MODEL EXECUTION BEGINS HERE

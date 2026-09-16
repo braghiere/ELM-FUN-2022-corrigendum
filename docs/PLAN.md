@@ -183,3 +183,13 @@ Both transients use byte-identical namelists apart from the case name (verified)
 `clm_params_c200626.nc`, finidat = spin20 FN `r.0541`. Spin-up namelists are the v2 files verbatim modulo paths
 (`clm_params_c180524.nc`, `use_lch4=.true.`, no FUN). Superseded cases kept (not deleted): `corr22ctl` AD/FN (2022 tree),
 `corr22fix` (A+B), `corr22spin20` TR (unused).
+
+### 2026-09-16 18:16 — throughput root cause: UCX was using the 10 GbE port, not InfiniBand
+The 2020-tree spin-up (job 5684763) closed the carbon balance (0 warnings) but still ran at **8 sim-yr/day**. gdb stack
+samples on four nodes: every rank in `MPI_Waitall` inside the MCT rearranger of the coupler exchange (`cime_run_lnd_recv_post`),
+UCX progressing a **TCP** interface. `ibstat` on the compute nodes: `mlx4_0` **port 1 = InfiniBand 56 Gb (Active)**, **port 2 =
+Ethernet 10 Gb**. UCX had auto-selected `rc_verbs/mlx4_0:2` (RoCE over the lossy 10 GbE port) + `tcp/ib0` as inter-node lanes.
+Fix (both trees' `config_machines.xml`, every case's `env_mach_specific.xml`, `runs/mpi_env.sh`): `UCX_NET_DEVICES=mlx4_0:1`,
+`UCX_TLS=rc_verbs,ud_verbs,sm,self` (replacing the inherited `UCX_TLS=^ud`). Chain cancelled and resubmitted:
+AD 5684779 → ADJ 5684780 → FN 5684781 → TR ctl 5684782 / TR abc 5684783 → report 5684784. Two-node ping-pong benchmark
+(`scratch pp.c`, results below) quantifies the transports.
