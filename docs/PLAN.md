@@ -66,3 +66,19 @@ Corrected-vs-control differs by exactly 6 diff lines (3 physics lines).
   Rebuilding the AD case directly (`case.build`, log `runs/casebuild_ctl_ad.log`) as the compile test.
 - CIME writes `export LDFLAGS=<value with spaces>` unquoted into `.env_mach_specific.sh` (only affects manual
   sourcing; the real build takes env from the XML — PIO cache confirmed the full flags).
+
+## NEW FINDING (2026-09-16): a third defect in the published product — Defect C
+While classifying tree diffs: in the 2022 `CNFUNMod.F90` `fun_cost_fix`, the paramfile-based assignment
+(`s_fix*(exp(a+b*T*(1-0.5T/c))-2)`) is followed by a LIVE hardcoded line
+`fun_cost_fix = (-1*(-30.0))/(1.25*exp((-3.62)+(-0.27)*T*(1-0.5*T/25.14)))` that overwrites it:
+**s_fix = -30 and the temperature coefficient sign-flipped (b = -0.27)**. `fun_cost_fix` is the only fixation-cost
+routine in that source (no Bytnerowicz variants). Effect: fixation cost ~900 gC/gN at 0 C rising to ~10^4-10^5 at
+tropical soil T -> symbiotic fixation switched off globally.
+Empirical confirmation from the published h0 (2001-2010): realized ΣNPP_NFIX/ΣNFIX = **3,884 gC/gN**; global
+symbiotic NFIX = **0.000 kg N/ha/yr**; 1 of 5,663 vegetated cells > 0.01. The BNFMIP variants had this line
+commented, so the BNFMIP runs were not affected; the 2022 global product was.
+Also: with use_fun & use_funp both on, the 2022 tree books `ar += 0.5*soilc_change + 0.5*soilc_change_p`, i.e.
+HALF of the N+P acquisition C cost is treated as autotrophic respiration (reported NPP excludes half the FUN cost;
+the other half is exported to soil). Relevant to any "fraction of NPP" comparison (Ashley).
+**Scope decision needed (user):** corrected chain = A+B only (as approved) vs A+B+C. Control chain must keep C
+(faithful 2022 reproduction) and its build is proceeding.
