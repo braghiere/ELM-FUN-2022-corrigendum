@@ -11,7 +11,8 @@ for g,c in zip(groups,cols):
     x,lo,hi=A[g]; e=E[g]
     ax[0].errorbar(x,e['cost_sum'],xerr=[[x-lo],[hi-x]],fmt='D',ms=9,color=c,mec='k',ecolor=c,capsize=3,label=g)
     ax[1].errorbar(x,e['mycC'],xerr=[[x-lo],[hi-x]],yerr=[[e['mycC']-e['p10']],[e['p90']-e['mycC']]],fmt='D',ms=9,color=c,mec='k',ecolor=c,capsize=3,label=g)
-    ax[1].annotate(f"{e['pct_gross']:.1f}% of NPP",(x,e['mycC']),xytext=(7,5),textcoords='offset points',fontsize=8.5)
+    off={'EcM Needle-leaf Trees and Shrubs':(-78,-14),'ECM Evergreen Needle Trees':(7,9),'EcM Broadleaf Trees and Shrubs':(7,-14)}.get(g,(7,5))
+    ax[1].annotate(f"{e['pct_gross']:.1f}% of NPP",(x,e['mycC']),xytext=off,textcoords='offset points',fontsize=8.5)
 ax[0].plot([0,20],[0,20],'--',color='gray',lw=1); ax[0].set_xlim(0,120); ax[0].set_ylim(0,20)
 ax[0].set_title('A. As plotted: COST_NACTIVE + COST_PACTIVE\n(these are gN/gC + gP/gC efficiencies, NOT a carbon flux)',fontsize=11)
 ax[0].set_xlabel('Hyphal C allocation, this study  (gC m$^{-2}$ yr$^{-1}$)  [group means read from figure]'); ax[0].set_ylabel('ELM "cost" sum  (gN/gC + gP/gC)')
