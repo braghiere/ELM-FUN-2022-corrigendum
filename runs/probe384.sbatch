@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -A ccsi -p batch --nodes=12 --ntasks-per-node=32 --exclusive --mem=0 --time=02:00:00
-#SBATCH --job-name=corr22_probe384 --output=/home/braghiere/ELM-FUN-2022-corrigendum/runs/logs/probe384.%j.out --mail-user=renatob@caltech.edu --mail-type=FAIL
+#SBATCH --job-name=corr22_test_lch4off --output=/home/braghiere/ELM-FUN-2022-corrigendum/runs/logs/test_lch4off.%j.out --mail-user=renatob@caltech.edu --mail-type=FAIL
 # Scaling probe: 1 model month of the FUN-off AD spin-up at 384 tasks (12 nodes), same exe class, to compare steps/s with the 576-task production AD.
 source /etc/profile.d/modules.sh 2>/dev/null; module purge; module load python/3.10.14 2>/dev/null
 export PATH=/home/braghiere/bin:/sw/cades-open/python/3.10.14/bin:$PATH

@@ -1,24 +1,24 @@
-START AD corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup Wed Sep 16 17:41:40 EDT 2026
+START probe384 Wed Sep 16 17:52:17 EDT 2026
 Creating component namelists
-  2026-09-16 17:41:41 atm
+  2026-09-16 17:52:18 atm
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 17:41:41 lnd
+  2026-09-16 17:52:18 lnd
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/clm/cime_config/buildnml
-  2026-09-16 17:41:42 ice
+  2026-09-16 17:52:18 ice
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 17:41:42 ocn
+  2026-09-16 17:52:19 ocn
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 17:41:42 rof
+  2026-09-16 17:52:19 rof
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/mosart/cime_config/buildnml
-  2026-09-16 17:41:42 glc
+  2026-09-16 17:52:19 glc
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 17:41:42 wav
+  2026-09-16 17:52:19 wav
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 17:41:42 iac
+  2026-09-16 17:52:19 iac
    Running /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 17:41:42 esp
+  2026-09-16 17:52:19 esp
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 17:41:42 cpl
+  2026-09-16 17:52:19 cpl
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
 Checking that inputdata is available as part of case submission
@@ -30,42 +30,42 @@ Check case OK
 submit_jobs case.run
 Submit job case.run
 Starting job script case.run
-2026-09-16 17:41:43 CASE.RUN BEGINS HERE
-2026-09-16 17:41:43 RUN_MODEL BEGINS HERE
-2026-09-16 17:41:43 PRE_RUN_CHECK BEGINS HERE
-2026-09-16 17:41:43 NAMELIST CREATION BEGINS HERE
-Generating namelists for /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup
+2026-09-16 17:52:20 CASE.RUN BEGINS HERE
+2026-09-16 17:52:20 RUN_MODEL BEGINS HERE
+2026-09-16 17:52:20 PRE_RUN_CHECK BEGINS HERE
+2026-09-16 17:52:20 NAMELIST CREATION BEGINS HERE
+Generating namelists for /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts/corr22fix_f19_f19_ICB1850CNRDCTCBC_ad_spinup
 Creating component namelists
-  2026-09-16 17:41:44 atm
+  2026-09-16 17:52:20 atm
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 17:41:44 lnd
+  2026-09-16 17:52:20 lnd
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/clm/cime_config/buildnml
-  2026-09-16 17:41:44 ice
+  2026-09-16 17:52:20 ice
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 17:41:44 ocn
+  2026-09-16 17:52:20 ocn
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 17:41:44 rof
+  2026-09-16 17:52:20 rof
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/mosart/cime_config/buildnml
-  2026-09-16 17:41:44 glc
+  2026-09-16 17:52:20 glc
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 17:41:44 wav
+  2026-09-16 17:52:20 wav
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 17:41:44 iac
+  2026-09-16 17:52:20 iac
    Running /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 17:41:44 esp
+  2026-09-16 17:52:20 esp
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 17:41:44 cpl
+  2026-09-16 17:52:20 cpl
    Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
-2026-09-16 17:41:44 NAMELIST CREATION HAS FINISHED
+2026-09-16 17:52:21 NAMELIST CREATION HAS FINISHED
 -------------------------------------------------------------------------
- - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run
+ - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22fix_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run
  - Case input data directory (DIN_LOC_ROOT) is /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata 
  - Checking for required input datasets in DIN_LOC_ROOT
 -------------------------------------------------------------------------
-2026-09-16 17:41:44 PRE_RUN_CHECK HAS FINISHED
-run command is srun  -n 576  --cpu-bind=cores /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup/bld/e3sm.exe   >> e3sm.log.$LID 2>&1  
-2026-09-16 17:41:44 SAVE_PRERUN_PROVENANCE BEGINS HERE
-2026-09-16 17:41:45 SAVE_PRERUN_PROVENANCE HAS FINISHED
-2026-09-16 17:41:45 MODEL EXECUTION BEGINS HERE
-slurmstepd: error: *** JOB 5684744 ON or-condo-c89 CANCELLED AT 2026-09-16T17:50:50 ***
+2026-09-16 17:52:21 PRE_RUN_CHECK HAS FINISHED
+run command is srun  -n 384  --cpu-bind=cores /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22fix_f19_f19_ICB1850CNRDCTCBC_ad_spinup/bld/e3sm.exe   >> e3sm.log.$LID 2>&1  
+2026-09-16 17:52:21 SAVE_PRERUN_PROVENANCE BEGINS HERE
+2026-09-16 17:52:21 SAVE_PRERUN_PROVENANCE HAS FINISHED
+2026-09-16 17:52:21 MODEL EXECUTION BEGINS HERE
+slurmstepd: error: *** JOB 5684757 ON or-condo-c178 CANCELLED AT 2026-09-16T17:55:18 ***

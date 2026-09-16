@@ -1,6 +1,6 @@
 #!/bin/bash
 # Post-creation verification for one chain. Usage: verify_cases.sh <prefix e.g. corr22ctl>
-P=$1; CR=/home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts; RR=/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs
+P=$1; CR=/home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts; [ "$1" = corr22spin20 ] && CR=/home/braghiere/E3SM_latest/E3SM/cime/scripts; RR=/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs
 AD=${P}_f19_f19_ICB1850CNRDCTCBC_ad_spinup; FN=${P}_f19_f19_ICB1850CNPRDCTCBC; TR=${P}_f19_f19_ICB20TRCNPRDCTCBC
 PY=/home/braghiere/bin/python
 echo "### chain $P"

@@ -14,9 +14,9 @@ while true; do
   for d in $RR/corr22*/run; do
     L=$(ls -t $d/lnd.log.* 2>/dev/null | head -1); [ -z "$L" ] && continue
     case=$(basename $(dirname $d)); age=$(( now - $(stat -c %Y $L) )); [ $age -gt 900 ] && continue   # only logs updated in last 15 min
-    n=$(grep -c "Beginning timestep" $L)
+    n=$(tr -d "\000" < $L | grep -c "Beginning timestep")
     if [ -z "${st0[$case]}" ] || [ "${t0[$case]}" -lt $((now-3600)) ]; then
-      if [ -n "${st0[$case]}" ]; then dt=$((now-${t0[$case]})); ds=$((n-${st0[$case]})); [ $dt -gt 0 ] && echo "throughput $case: $ds steps in ${dt}s = $(( ds*86400/dt/8760 )) sim-yr/day; model time $(grep 'Beginning timestep' $L | tail -1 | grep -o '[0-9 ]*$' | tr -s ' ') $(date +%m-%d_%H:%M)"; fi
+      if [ -n "${st0[$case]}" ]; then dt=$((now-${t0[$case]})); ds=$((n-${st0[$case]})); [ $dt -gt 0 ] && echo "throughput $case: $ds steps in ${dt}s = $(( ds*86400/dt/8760 )) sim-yr/day; model time $(tr -d "\000" < $L | grep "Beginning timestep" | tail -1 | grep -o '[0-9 ]*$' | tr -s ' ') $(date +%m-%d_%H:%M)"; fi
       st0[$case]=$n; t0[$case]=$now
     fi
     E=$(ls -t $d/e3sm.log.* 2>/dev/null | head -1)

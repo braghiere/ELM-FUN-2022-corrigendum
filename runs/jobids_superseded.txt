@@ -1,0 +1,5 @@
+corr22ctl AD=5684716 ADJ=5684717 FN=5684718 TR=5684719 2026-09-16
+corr22ctl AD=5684721 ADJ=5684722 FN=5684723 TR=5684724 2026-09-16
+corr22fix AD=5684725 ADJ=5684726 FN=5684727 TR=5684728 2026-09-16
+cancelled 5684744-5684755 chain at 17:52 (cbalance flood, 3 yr/day); see PLAN.md
+test_lch4off 5684757: cancelled 17:56, cbalance flood even with use_lch4=.false.

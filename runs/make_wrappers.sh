@@ -1,12 +1,13 @@
 #!/bin/bash
 # Generate OLMT-style SBATCH wrappers (case.submit --no-batch inside an 18-node allocation) for one chain.
 # Usage: make_wrappers.sh <prefix>   -> runs/wrappers/<prefix>_{AD,FN,TR}.sbatch
-P=$1; CR=/home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts; W=/home/braghiere/ELM-FUN-2022-corrigendum/runs/wrappers; LG=/home/braghiere/ELM-FUN-2022-corrigendum/runs/logs
+P=$1; CR=/home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts; [ "$P" = corr22spin20 ] && CR=/home/braghiere/E3SM_latest/E3SM/cime/scripts; W=/home/braghiere/ELM-FUN-2022-corrigendum/runs/wrappers; LG=/home/braghiere/ELM-FUN-2022-corrigendum/runs/logs
 MAIL=renatob@caltech.edu
 gen(){ # $1 tag $2 casename $3 STOP_N $4 RUN_STARTDATE
+NT=$(grep -o 'compclass="LND">[0-9]*' $CR/$2/env_mach_pes.xml | head -1 | grep -o '[0-9]*$'); NODES=$(( (NT+31)/32 ))
 cat > $W/${P}_$1.sbatch <<EOF
 #!/bin/bash
-#SBATCH -A ccsi -p batch --nodes=18 --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00
+#SBATCH -A ccsi -p batch --nodes=$NODES --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00
 #SBATCH --job-name=${P}_$1 --output=$LG/${P}_$1.%j.out --mail-user=$MAIL --mail-type=END,FAIL
 source /etc/profile.d/modules.sh 2>/dev/null; module purge; module load python/3.10.14 2>/dev/null
 export PATH=/home/braghiere/bin:/sw/cades-open/python/3.10.14/bin:\$PATH

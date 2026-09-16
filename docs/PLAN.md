@@ -149,3 +149,23 @@ alongside to pick the transient layout (576+384 = 960 = account cap).
 **Submitted:** shared spin-up AD 5684744 → adjust_restart 5684745 → FN 5684746 (`runs/submit_spinup.sh corr22ctl`).
 Transients: `runs/submit_transient.sh corr22ctl <FN>` and `... corr22abc <FN>` once the abc build finishes
 (`runs/olmt_create_abc.log`); report: `runs/submit_report.sh <TRctl> <TRabc>`. Monitor: `runs/monitor_chain.sh`.
+
+### 2026-09-16 ~18:00 — FUN-off carbon balance does not close in the 2022 tree → spin-up moves to the frozen 2020 tree
+- First faithful spin-up job (5684744, FUN off, lch4 on, 576 tasks, UCX/IB confirmed: `inter-node rc_verbs/mlx4_0`) ran at
+  **3 sim-yr/day**: from model day 11 the balance check printed `column cbalance error` (|err| 1e-7…4e-5 gC/m²/step) for 577
+  columns at every step — 292k lines in 11 min from 576 ranks. Cancelled; logs in `run/abandoned_cbal_flood_20260916/`.
+- Cause is in the 2022 `EcosystemBalanceCheckMod` (SourceMods fidelity file, mtime 2020-08-23): threshold raised 1e-8→1e-7,
+  `endrun` **commented out** when FUN is off, and the whole diagnostic block **skipped** when FUN is on (so FUN-on runs never
+  report balance errors at all). The 2020 tree that produced the published spin-up (`E3SM_latest/E3SM`, newest source
+  2020-06-10 = the day v2 was created and submitted) still has `endrun` at 1e-8 → its FUN-off spin-up necessarily closed.
+- Methane is not the trigger: a 1-month FUN-off, `use_lch4=.false.` test (job 5684757, 12 nodes) flooded from the first
+  steps (23.7k warnings in 64 steps). The non-closure is intrinsic to the 2022 tree family in FUN-off mode (it also implies
+  the 2020 FUN-off "ELM" product v3 TR — submitted 4 min after that 08-23 edit — ran with a non-closing balance).
+- **Decision: run the FUN-off spin-up in the frozen 2020 tree, exactly as in 2020** (no SourceMods, `clm_params_c180524.nc`,
+  384 tasks/12 nodes as v2, `use_lch4=.true.`, AD 260 → FN 540), then hand `r.0541` to the two 2022-tree FUN-P transients
+  — the same 2020-tree→2022-tree restart handoff the published product used. Port = straight copy of the three machine
+  XMLs (2020 files were byte-identical to the trendy originals) + the ODEMod gcc-12 fix. Chain prefix `corr22spin20`
+  (`runs/olmt_create_spin20.log`). Transients (`corr22ctl`, `corr22abc`) re-pointed to `corr22spin20_…CNPRDCTCBC.clm2.r.0541`
+  and switched to 384 tasks so both fit under the 960-CPU cap side by side.
+- Corrigendum diagnostic to add later: enable a rate-limited FUN-on balance report in the transients (the 2022 code silently
+  skips it), so we know whether the FUN-P runs conserve carbon.

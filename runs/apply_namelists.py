@@ -18,12 +18,13 @@ t=open(src).read()
 OV='/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata'
 t=t.replace('/lustre/or-hydra/cades-ccsi/proj-shared/project_acme/ACME_inputdata',OV)
 # paramfile: v2 used an OLMT-staged copy of clm_params_c180524.nc (gone with or-hydra); c200626 is identical in every shared parameter
-t=re.sub(r"paramfile *= *'[^']*'", "paramfile = '/home/braghiere/clm_params_c200626.nc'", t)
+PF=os.environ.get('PARAMFILE','/home/braghiere/clm_params_c200626.nc')   # spin-up in the 2020 tree: set PARAMFILE to the c180524 copy (identical shared values)
+t=re.sub(r"paramfile *= *'[^']*'", "paramfile = '"+PF+"'", t)
 if phase=='fn':
     t=t.replace('fix_global_v2_f19_f19_ICB1850CNRDCTCBC_ad_spinup.clm2.r.0261', ad+'.clm2.r.0261')
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+ad+'/run/', t)
 if phase=='tr':
-    t=t.replace('fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541', fn+'.clm2.r.0541')
+    t=t.replace('fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541', fn+'.clm2.r.0541'   # fn = corr22spin20_f19_f19_ICB1850CNPRDCTCBC (shared))
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+fn+'/run/', t)
 t=re.sub(r"/lustre/or-hydra/cades-ccsi/scratch/braghiere/[^/']+/run/", runroot+'/'+case+'/run/', t)
 F1=("'NPP_NACTIVE','NPP_NNONMYC','NPP_NFIX','NPP_NRETRANS','NPP_NAM','NPP_NECM','NPP_PACTIVE','NPP_PNONMYC','NPP_PRETRANS','NPP_PAM','NPP_PECM',"
