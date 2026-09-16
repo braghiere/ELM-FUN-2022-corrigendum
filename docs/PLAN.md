@@ -22,3 +22,17 @@ Corrected-vs-control differs by exactly 6 diff lines (3 physics lines).
 5. [ ] Runs: 701 model-yr per chain, both in parallel (36 nodes). ETA at 150-300 yr/day: ~2.5-5 days.
 6. [ ] Auto analysis: control vs corrected — mycorrhizal/non-myc/fixation C partition, AM/EcM split, NPP, C & N pools, by biome; figures; report emailed.
 7. [ ] Decide corrigendum.
+
+## Execution log
+- 2026-09-16 P1 config port done (backups `*.orig_20260916`); diffs confined to `cades` blocks (+2 blank lines).
+- Overlay inputdata: `/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata` (symlinks to shared
+  e3sm_inputdata; real dirs for ndepdata/paramdata/CO2/aero). Generated constant-1850 Ndep/aero/CO2 streams
+  (`ncks` slices, verified YEAR=1850 / date=1850xx / CO2=284.7 ppm) — kept for OLMT defaults, but the v6
+  baseline used the TRANSIENT stream files in all phases, so final namelists are templated from v6.
+- v6 ground-truth `user_nl_clm` for all 3 phases saved in `runs/v6_baseline_namelists/`; `runs/apply_v6_namelists.py`
+  makes ours identical modulo paths/casenames (+ explicit hist_fincl1 with pathway fluxes & pools).
+- Same paramfile for BOTH chains (`/home/braghiere/clm_params_c200626.nc`, as v6): the code overwrites the
+  non-myc arrays anyway, so the only inter-chain difference is the SourceMods CNFUNMod (3 physics lines).
+- CNP file: OLMT `CNP_parameters_c180529.nc` (md5 e7efc1a5…) == the copy every OLMT here has used. Consistent.
+- Python: `~/bin/python` -> 3.10.14 (module) runs both OLMT (numpy/netCDF4) and 2022-era CIME. miniconda 3.13 breaks CIME.
+- Compile test launched: control chain, `global_fullrun.py --no_submit` (log `runs/olmt_create_ctl.log`).
