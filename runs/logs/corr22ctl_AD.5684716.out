@@ -1,0 +1,70 @@
+START AD corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup Wed Sep 16 16:42:26 EDT 2026
+Creating component namelists
+  2026-09-16 16:42:27 atm
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/satm/cime_config/buildnml
+  2026-09-16 16:42:27 lnd
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/clm/cime_config/buildnml
+  2026-09-16 16:42:28 ice
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sice/cime_config/buildnml
+  2026-09-16 16:42:28 ocn
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/socn/cime_config/buildnml
+  2026-09-16 16:42:28 rof
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/mosart/cime_config/buildnml
+  2026-09-16 16:42:28 glc
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sglc/cime_config/buildnml
+  2026-09-16 16:42:28 wav
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/swav/cime_config/buildnml
+  2026-09-16 16:42:28 iac
+   Running /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/siac/cime_config/buildnml 
+  2026-09-16 16:42:28 esp
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sesp/cime_config/buildnml
+  2026-09-16 16:42:28 cpl
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/drivers/mct/cime_config/buildnml
+Finished creating component namelists
+Checking that inputdata is available as part of case submission
+Loading input file list: 'Buildconf/clm.input_data_list'
+Model clm no file specified for finidat
+Loading input file list: 'Buildconf/mosart.input_data_list'
+Loading input file list: 'Buildconf/cpl.input_data_list'
+Check case OK
+submit_jobs case.run
+Submit job case.run
+Starting job script case.run
+2026-09-16 16:42:30 CASE.RUN BEGINS HERE
+2026-09-16 16:42:30 RUN_MODEL BEGINS HERE
+2026-09-16 16:42:30 PRE_RUN_CHECK BEGINS HERE
+2026-09-16 16:42:30 NAMELIST CREATION BEGINS HERE
+Generating namelists for /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup
+Creating component namelists
+  2026-09-16 16:42:30 atm
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/satm/cime_config/buildnml
+  2026-09-16 16:42:30 lnd
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/clm/cime_config/buildnml
+  2026-09-16 16:42:31 ice
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sice/cime_config/buildnml
+  2026-09-16 16:42:31 ocn
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/socn/cime_config/buildnml
+  2026-09-16 16:42:31 rof
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/mosart/cime_config/buildnml
+  2026-09-16 16:42:31 glc
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sglc/cime_config/buildnml
+  2026-09-16 16:42:31 wav
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/swav/cime_config/buildnml
+  2026-09-16 16:42:31 iac
+   Running /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/siac/cime_config/buildnml 
+  2026-09-16 16:42:31 esp
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/sesp/cime_config/buildnml
+  2026-09-16 16:42:31 cpl
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/drivers/mct/cime_config/buildnml
+Finished creating component namelists
+2026-09-16 16:42:31 NAMELIST CREATION HAS FINISHED
+-------------------------------------------------------------------------
+ - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run
+ - Case input data directory (DIN_LOC_ROOT) is /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata 
+ - Checking for required input datasets in DIN_LOC_ROOT
+-------------------------------------------------------------------------
+2026-09-16 16:42:31 PRE_RUN_CHECK HAS FINISHED
+run command is srun  -n 576  --cpu-bind=none /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup/bld/e3sm.exe   >> e3sm.log.$LID 2>&1  
+2026-09-16 16:42:31 SAVE_PRERUN_PROVENANCE BEGINS HERE
+2026-09-16 16:42:31 SAVE_PRERUN_PROVENANCE HAS FINISHED
+2026-09-16 16:42:31 MODEL EXECUTION BEGINS HERE

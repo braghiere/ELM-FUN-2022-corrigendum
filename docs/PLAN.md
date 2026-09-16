@@ -88,3 +88,12 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
   EcosystemBalanceCheckMod into BOTH chains' SourceMods so compiled physics == 2022 (BeTR ODEMod compile fix kept).
   Consequence for Ashley: reported NPP excludes the FUN cost; comparable denominator = NPP+NPP_NUPTAKE+NPP_PUPTAKE (README fixed).
 - **P1 compile test PASSED** (AD case, 2026-09-16 16:24). AD case must be rebuilt once with the 4 fidelity SourceMods.
+- **2026-09-16 16:42 CONTROL CHAIN SUBMITTED** (OLMT-style wrappers, BATCH_SYSTEM=none + case.submit --no-batch inside
+  18-node allocations; 3-day walltime; REST_N=20; DOUT_S=FALSE; afterok chain AD -> adjust_restart -> FN -> TR; SLURM mail
+  END/FAIL). Job IDs: corr22ctl AD=5684716 ADJ=5684717 FN=5684718 TR=5684719 2026-09-16. Launch mechanics note: OLMT sets BATCH_SYSTEM=none and TR shares FNs
+- **2026-09-16 16:42 CONTROL CHAIN SUBMITTED.** OLMT-style wrappers (BATCH_SYSTEM=none + `case.submit --no-batch` inside
+  18-node allocations), 3-day walltime, REST_N=20, DOUT_S=FALSE, afterok chain AD -> adjust_restart -> FN -> TR, SLURM mail
+  on END/FAIL. Job IDs: AD=5684716 ADJ=5684717 FN=5684718 TR=5684719. Launch-mechanics notes: OLMT sets BATCH_SYSTEM=none;
+  TR shares FN's executable (EXEROOT corrected to `.../corr22ctl_f19_f19_ICB1850CNPRDCTCBC/bld`; identical SourceMods+Macros).
+- A+B corrected chain (`corr22fix`, srcmods_fix) being created+built in background; NOT submitted pending scope decision
+  (A+B vs A+B+C vs three chains). srcmods_fixABC staged.
