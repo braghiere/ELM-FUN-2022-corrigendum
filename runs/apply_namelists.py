@@ -24,7 +24,7 @@ if phase=='fn':
     t=t.replace('fix_global_v2_f19_f19_ICB1850CNRDCTCBC_ad_spinup.clm2.r.0261', ad+'.clm2.r.0261')
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+ad+'/run/', t)
 if phase=='tr':
-    t=t.replace('fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541', fn+'.clm2.r.0541'   # fn = corr22spin20_f19_f19_ICB1850CNPRDCTCBC (shared))
+    t=t.replace('fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541', fn+'.clm2.r.0541')   # fn = corr22spin20_f19_f19_ICB1850CNPRDCTCBC (shared spin-up)
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+fn+'/run/', t)
 t=re.sub(r"/lustre/or-hydra/cades-ccsi/scratch/braghiere/[^/']+/run/", runroot+'/'+case+'/run/', t)
 F1=("'NPP_NACTIVE','NPP_NNONMYC','NPP_NFIX','NPP_NRETRANS','NPP_NAM','NPP_NECM','NPP_PACTIVE','NPP_PNONMYC','NPP_PRETRANS','NPP_PAM','NPP_PECM',"
