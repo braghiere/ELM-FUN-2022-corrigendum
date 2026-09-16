@@ -6,8 +6,12 @@
 "gC/m2/yr" on her figures is therefore incorrect. The apparent boreal 1:1 "match" is a numerical coincidence.
 
 **Correct variable (panel B):** `NPP_NACTIVE + NPP_PACTIVE` (gC/m2/s -> gC/m2/yr): carbon actually spent on
-mycorrhizal (AM+EcM) N and P uptake; excludes non-mycorrhizal uptake. Fraction of NPP = that / `NPP`
-(ELM NPP = GPP - AR; FUN's uptake C is routed to soil, so it sits inside NPP). Do NOT use
+mycorrhizal (AM+EcM) N and P uptake; excludes non-mycorrhizal uptake.
+**Denominator (verified in the 2022 build source, 2026-09-16):** with FUN and FUN-P on, the 2022 tree books the
+FULL N+P acquisition cost into autotrophic respiration (`ar += soilc_change + soilc_change_p`), so the reported
+`NPP` = GPP - AR_base - (NPP_NUPTAKE + NPP_PUPTAKE) EXCLUDES the FUN cost. The quantity comparable to a
+satellite/total NPP is therefore `NPP + NPP_NUPTAKE + NPP_PUPTAKE`; use `(NPP_NACTIVE+NPP_PACTIVE)/(NPP+NPP_NUPTAKE+NPP_PUPTAKE)`
+(stored as `pct_gross` in replot_data.json). Earlier drafts said the cost sat inside NPP — that was wrong. Do NOT use
 `NUPTAKE_NPP_FRACTION` as "fraction of NPP": its denominator is `AVAILC` = GPP - maintenance respiration.
 
 **ELM source:** `fix_global_v6_funp_f19_f19_ICB20TRCNPRDCTCBC` (the 2022 JAMES product), 2001-2010 mean,

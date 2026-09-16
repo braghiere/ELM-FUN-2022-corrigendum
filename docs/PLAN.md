@@ -82,3 +82,9 @@ HALF of the N+P acquisition C cost is treated as autotrophic respiration (report
 the other half is exported to soil). Relevant to any "fraction of NPP" comparison (Ashley).
 **Scope decision needed (user):** corrected chain = A+B only (as approved) vs A+B+C. Control chain must keep C
 (faithful 2022 reproduction) and its build is proceeding.
+- **Fidelity closure (2026-09-16):** trendy vs actual-2022 tree differ in 5 `clm/src` files (0 in `clm/bld`).
+  The 2022 tree books the FULL FUN N+P cost into AR (`ar += soilc_change; ar += soilc_change_p`); trendy's 0.5/0.5 form
+  is a 2023 edit. Staged the 2022 versions of CNCarbonFluxType, VegetationDataType, ColumnDataType and
+  EcosystemBalanceCheckMod into BOTH chains' SourceMods so compiled physics == 2022 (BeTR ODEMod compile fix kept).
+  Consequence for Ashley: reported NPP excludes the FUN cost; comparable denominator = NPP+NPP_NUPTAKE+NPP_PUPTAKE (README fixed).
+- **P1 compile test PASSED** (AD case, 2026-09-16 16:24). AD case must be rebuilt once with the 4 fidelity SourceMods.
