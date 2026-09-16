@@ -97,3 +97,6 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
   TR shares FN's executable (EXEROOT corrected to `.../corr22ctl_f19_f19_ICB1850CNPRDCTCBC/bld`; identical SourceMods+Macros).
 - A+B corrected chain (`corr22fix`, srcmods_fix) being created+built in background; NOT submitted pending scope decision
   (A+B vs A+B+C vs three chains). srcmods_fixABC staged.
+- Verified `histFileMod::set_hist_filename` stamps averaged (nhtfrq<0) history files with the CURRENT date at write time,
+  so the AD h1 covering years 241-260 is `…clm2.h1.0261-01-01-00000.nc` — exactly what `adjust_restart.py --restart_year 261`
+  reads (same as the 2020 chain). Persistent monitor armed on the AD job (first step / errors / hourly throughput / terminal state).
