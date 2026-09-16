@@ -193,3 +193,6 @@ Fix (both trees' `config_machines.xml`, every case's `env_mach_specific.xml`, `r
 `UCX_TLS=rc_verbs,ud_verbs,sm,self` (replacing the inherited `UCX_TLS=^ud`). Chain cancelled and resubmitted:
 AD 5684779 → ADJ 5684780 → FN 5684781 → TR ctl 5684782 / TR abc 5684783 → report 5684784. Two-node ping-pong benchmark
 (`scratch pp.c`, results below) quantifies the transports.
+**Result (18:20):** AD 5684779 at **684 sim-yr/day** (4,167 hourly steps per minute; above the 2020 record of ~550), zero balance
+warnings, UCX inter-node `ud_verbs/mlx4_0:1`. ETA: AD 260 yr ≈ 9 h (→ ~03:30 Sep 17), FN 540 yr ≈ 19–20 h (→ ~Sep 17 23:00),
+both FUN-P transients in parallel 161 yr ≈ 10 h (→ ~Sep 18 10:00), analysis e-mail right after. Total ≈ 1.7 days.
