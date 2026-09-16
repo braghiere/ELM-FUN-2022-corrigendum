@@ -169,3 +169,17 @@ Transients: `runs/submit_transient.sh corr22ctl <FN>` and `... corr22abc <FN>` o
   and switched to 384 tasks so both fit under the 960-CPU cap side by side.
 - Corrigendum diagnostic to add later: enable a rate-limited FUN-on balance report in the transients (the 2022 code silently
   skips it), so we know whether the FUN-P runs conserve carbon.
+
+### 2026-09-16 18:01 — final layout submitted
+| stage | case (tree) | job | depends | length |
+|---|---|---|---|---|
+| shared FUN-off AD | `corr22spin20_…CNRDCTCBC_ad_spinup` (frozen 2020 tree `E3SM_latest/E3SM`) | 5684763 | — | 260 yr, 384 tasks / 12 nodes |
+| adjust_restart | OLMT `adjust_restart.py` on AD `r.0261` (20-yr means from h1) | 5684764 | afterok AD | — |
+| shared FUN-off FN | `corr22spin20_…CNPRDCTCBC` (2020 tree) | 5684765 | afterok ADJ | 540 yr → `r.0541` |
+| control transient (FUN-P on, 2022 code as published) | `corr22ctl_…ICB20TRCNPRDCTCBC` (2022 tree, srcmods_ctl d0c2fef5) | 5684766 | afterok FN | 1850–2010, 384 tasks |
+| corrected transient (A+B+C bundled) | `corr22abc_…ICB20TRCNPRDCTCBC` (2022 tree, srcmods_fixABC eae819ff) | 5684767 | afterok FN | 1850–2010, 384 tasks |
+| analysis + email | `runs/final_report.sbatch` (control vs corrected vs published) | 5684768 | afterok both TR | — |
+Both transients use byte-identical namelists apart from the case name (verified), `use_fun/use_funp=.true.`, `use_lch4=.false.`,
+`clm_params_c200626.nc`, finidat = spin20 FN `r.0541`. Spin-up namelists are the v2 files verbatim modulo paths
+(`clm_params_c180524.nc`, `use_lch4=.true.`, no FUN). Superseded cases kept (not deleted): `corr22ctl` AD/FN (2022 tree),
+`corr22fix` (A+B), `corr22spin20` TR (unused).
