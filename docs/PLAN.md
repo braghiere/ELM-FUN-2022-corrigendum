@@ -112,3 +112,40 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
   (throughput per chain drops, but parallel); (c) burst partition with 2-day chunked restarts (REST_N=20 supports it).
 - **SCOPE DECISION (user, 2026-09-16 ~17:00): ALL corrections bundled — A (param swap) + B (PFT typo) + C (s_fix override
   removed), exactly as the BNFMIP fix. Two chains: control vs corrected(ABC). A+B-only chain cancelled (jobs 5684725-28, never ran).**
+
+## 2026-09-16 (evening) — protocol correction: FUN-off shared spin-up, bundled A+B+C, MPI transport
+**Scope (user):** the corrected chain bundles ALL three fixes (A param swap, B PFT typo, C s_fix override) exactly as in
+BNFMIP — `runs/srcmods_fixABC` (CNFUNMod md5 eae819ff). A+B-only chain (`corr22fix`) cancelled before it ran; its AD case
+is reused only as a 384-task scaling probe (FUN off ⇒ code path identical).
+
+**Spin-up FUN status — verified, and it changes the design.** The published transient `fix_global_v6_funp` branched from
+`fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541` (FN, RUN_STARTDATE 0001, so 540 FN years) which itself came from the
+v2 AD `r.0261` (260 yr). The v2 spin-up cases have **no `use_fun`/`use_funp`** in `user_nl_clm`; the model default is
+`.false.` (`clm_varctl.F90:330-331`; build-namelist has no non-FATES default) and the surviving v3 AD h0 has NPP_NUPTAKE =
+NPP_NACTIVE = NPP_NFIX ≡ 0 in every cell. **The published spin-up ran FUN off; FUN/FUN-P were switched on at 1850 in the
+transient.** All three 2022 products (ELM = v3, ELM_FUN = v3_fun, ELM_FUNP = v6_funp) are transients off that same restart.
+Other v2-vs-v6-template differences: v2 spin-up had `use_lch4 = .true.` (v6 TR: `.false.`), RCP4.5 co2_file (inert:
+`co2_type='constant'` 284.7 ppm), OLMT-staged `clm_params_c180524.nc` — which equals `c200626` in all 294 shared parameters
+(c200626 only adds the 26 FUN entries that the 2022 `readParamsMod` reads unconditionally). Consequences:
+- The control AD that had been running (FUN-P on, lch4 off, from v6 templates) was unfaithful → cancelled at 15 min; logs kept
+  in `run/abandoned_funon_20260916/`.
+- New templating `runs/apply_namelists.py`: AD/FN from `runs/v2_spinup_namelists/` (v2 ground truth), TR from v6;
+  FN = 540 yr; TR finidat = FN `r.0541`. Verified in resolved `lnd_in`: AD/FN have no use_fun (default off), use_lch4 T;
+  TR use_fun/use_funp T, use_lch4 F, finidat r.0541.
+- **One shared FUN-off spin-up (corr22ctl AD 260 + FN 540) feeds both transients** — the A/B/C fixes cannot touch a FUN-off
+  run. Work drops from 2×801 to 800 + 2×161 model-years and the 960-CPU account cap stops mattering for the long phase.
+- Source tree: the 2020 spin-up ran in `E3SM_latest/E3SM` (same base b1517eec0; 45 clm/src files differ from the 2022 tree,
+  FUN-related). We run everything in the single 2022 tree — same protocol, one code base; exact bit reproduction of the 2020
+  state was never possible (or-hydra scratch and its restarts are gone; compilers changed).
+
+**Throughput — the 2020 record vs ours.** CaseStatus: v2 AD 260 yr in 11.4 h (~550 sim-yr/day, 384 tasks, FUN off);
+v6_funp TR 161 yr in 9.0 h (~430 sim-yr/day, FUN-P on). Ours: 35–55 sim-yr/day at 576 tasks. Flags are the same (`-O`,
+DEBUG=FALSE). Diagnosis: `openmpi/4.1.6` has only tcp/vader/self BTLs; its `pml_ucx` links spack UCX 1.16 with
+rc_verbs/ud_verbs on mlx4_0. Fix applied: `runs/mpi_env.sh` (OMPI_MCA_pml=ucx, osc=ucx, btl=^tcp,openib, UCX_TLS=^ud)
+sourced by every wrapper; `--cpu-bind=none` → `--cpu-bind=cores` in config_machines and in each case's env_mach_specific.xml.
+First AD job runs with UCX_LOG_LEVEL=info to record the transport actually used. A 384-task, 1-month probe (12 nodes) runs
+alongside to pick the transient layout (576+384 = 960 = account cap).
+
+**Submitted:** shared spin-up AD 5684744 → adjust_restart 5684745 → FN 5684746 (`runs/submit_spinup.sh corr22ctl`).
+Transients: `runs/submit_transient.sh corr22ctl <FN>` and `... corr22abc <FN>` once the abc build finishes
+(`runs/olmt_create_abc.log`); report: `runs/submit_report.sh <TRctl> <TRabc>`. Monitor: `runs/monitor_chain.sh`.

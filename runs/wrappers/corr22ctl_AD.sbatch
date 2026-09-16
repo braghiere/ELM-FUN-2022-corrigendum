@@ -4,6 +4,7 @@
 source /etc/profile.d/modules.sh 2>/dev/null; module purge; module load python/3.10.14 2>/dev/null
 export PATH=/home/braghiere/bin:/sw/cades-open/python/3.10.14/bin:$PATH
 export TMPDIR=/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/tmp_build
+source /home/braghiere/ELM-FUN-2022-corrigendum/runs/mpi_env.sh
 cd /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/scripts/corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup || exit 1
 ./xmlchange STOP_OPTION=nyears,STOP_N=260,REST_OPTION=nyears,REST_N=20,RUN_STARTDATE=0001-01-01,DOUT_S=FALSE,RESUBMIT=0,CONTINUE_RUN=FALSE
 echo "START AD corr22ctl_f19_f19_ICB1850CNRDCTCBC_ad_spinup $(date)"; ./case.submit --no-batch; rc=$?; echo "END AD rc=$rc $(date)"
