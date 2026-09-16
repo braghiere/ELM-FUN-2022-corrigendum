@@ -104,3 +104,9 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
   at 576 tasks (not the 150-300 assumed from f09 logs). AD 260 yr ~4.2 d, FN 280 ~4.5 d, TR 161 ~2.6 d -> ~11 days per chain
   (chains run in parallel). Cancelled the 3-day-walltime control jobs (5684716-19, 6 min lost) and resubmitted with 10-day
   walltime: corr22ctl AD=5684721 ADJ=5684722 FN=5684723 TR=5684724 2026-09-16. Will refine ETA from the hourly monitor.
+- **2026-09-16 16:51 A+B CHAIN SUBMITTED** (srcmods_fix; FN/TR share the AD executable — Macros identical across AD/FN/TR,
+  same pattern validity as control). Job IDs: AD=5684725 ADJ=5684726 FN=5684727 TR=5684728.
+- **Scheduler constraint:** A+B AD is PENDING with reason `MaxCpuPerAccount` while the control AD (576 CPUs) runs -> the
+  `ccsi` account cap likely prevents two 576-task jobs concurrently. If so, chains run SEQUENTIALLY (~11-12 d each at
+  ~55-65 sim-yr/day). Options under evaluation: (a) accept sequential; (b) fewer tasks per chain to fit two under the cap
+  (throughput per chain drops, but parallel); (c) burst partition with 2-day chunked restarts (REST_N=20 supports it).
