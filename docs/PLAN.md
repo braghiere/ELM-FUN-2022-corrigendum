@@ -57,3 +57,12 @@ Corrected-vs-control differs by exactly 6 diff lines (3 physics lines).
   (`config_machines.xml`; pre-fix copy kept as `*.ported_prefix_20260916`). Relaunched (RELAUNCH-3).
 - Note for later: July case Macros used `-mcmodel=medium`; current config gives `small`. If the global link hits
   "relocation truncated to fit", switch CFLAGS to `-mcmodel=medium`.
+- **Compile test failure #2 (P1)** — model compile stopped at 46% in the BeTR external
+  (`sbetr/.../ODEMod.F90:672`, "Explicit interface required for polymorphic argument", gcc>=10 strictness).
+  Only 5 files differ between the trendy and silent `components/clm/src`; the silent tree's BeTR fix is all
+  `call odefun(...)` lines commented out (36 lines). BeTR is not enabled in this compset (v6 lnd_in has no
+  `use_betr`), so this is compile-only dead code for our runs. Ported that file (original kept as
+  `ODEMod.F90.orig_20260916`); other 4 diffs are BNFMIP-era FUN/diagnostic changes and are NOT ported (fidelity).
+  Rebuilding the AD case directly (`case.build`, log `runs/casebuild_ctl_ad.log`) as the compile test.
+- CIME writes `export LDFLAGS=<value with spaces>` unquoted into `.env_mach_specific.sh` (only affects manual
+  sourcing; the real build takes env from the XML — PIO cache confirmed the full flags).
