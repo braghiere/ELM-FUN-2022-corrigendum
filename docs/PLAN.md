@@ -36,3 +36,12 @@ Corrected-vs-control differs by exactly 6 diff lines (3 physics lines).
 - CNP file: OLMT `CNP_parameters_c180529.nc` (md5 e7efc1a5…) == the copy every OLMT here has used. Consistent.
 - Python: `~/bin/python` -> 3.10.14 (module) runs both OLMT (numpy/netCDF4) and 2022-era CIME. miniconda 3.13 breaks CIME.
 - Compile test launched: control chain, `global_fullrun.py --no_submit` (log `runs/olmt_create_ctl.log`).
+- First OLMT attempt failed at `runcase.py:896`: in this OLMT `--parm_file` is a *text parameter-modification
+  list* opened from the OLMT dir; the netCDF paramfile option is `--mod_parm_file <path>` (passed through by
+  `global_fullrun.py`; ncap edits only fire for humhol/marsh). Relaunched with `--mod_parm_file`.
+- makepointdata built f19 inputs from the overlay: domain `domain.lnd.fv1.9x2.5_gx1v6.090206.nc`, 17-PFT
+  `surfdata_1.9x2.5_simyr1850_c180306.nc`, dynpft from `landuse.timeseries_1.9x2.5_rcp8.5_simyr1850-2100_c141219.nc`
+  (OLMT's hardcoded f19 default in makepointdata.py:98 — kept, as the 2020 tool used the same logic; identical across chains).
+- Post-creation: `runs/verify_cases.sh <prefix>` (templates v6 namelists, checks all .nc paths, env, SourceMods md5,
+  normalized diff vs v6). Submission: `runs/submit_chain.sh <prefix>` (one long job per phase, afterok chaining,
+  email END/FAIL to renatob@caltech.edu). Neither run yet.
