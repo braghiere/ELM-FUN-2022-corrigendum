@@ -100,3 +100,7 @@ the other half is exported to soil). Relevant to any "fraction of NPP" compariso
 - Verified `histFileMod::set_hist_filename` stamps averaged (nhtfrq<0) history files with the CURRENT date at write time,
   so the AD h1 covering years 241-260 is `…clm2.h1.0261-01-01-00000.nc` — exactly what `adjust_restart.py --restart_year 261`
   reads (same as the 2020 chain). Persistent monitor armed on the AD job (first step / errors / hourly throughput / terminal state).
+- **Throughput reality check (2026-09-16 16:49):** lnd.log prints one line per hourly timestep; first ~5 min gave ~60-65 sim-yr/day
+  at 576 tasks (not the 150-300 assumed from f09 logs). AD 260 yr ~4.2 d, FN 280 ~4.5 d, TR 161 ~2.6 d -> ~11 days per chain
+  (chains run in parallel). Cancelled the 3-day-walltime control jobs (5684716-19, 6 min lost) and resubmitted with 10-day
+  walltime: corr22ctl AD=5684721 ADJ=5684722 FN=5684723 TR=5684724 2026-09-16. Will refine ETA from the hourly monitor.
