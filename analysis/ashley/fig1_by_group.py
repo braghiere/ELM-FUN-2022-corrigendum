@@ -20,8 +20,8 @@ ax.set_xlabel('Carbon sent to mycorrhizal fungi  (grams of carbon per square met
 ax.set_xlim(0,135); ax.xaxis.grid(True,color=GRID,lw=0.8); ax.set_axisbelow(True)
 for s in ('top','right','left'): ax.spines[s].set_visible(False)
 ax.spines['bottom'].set_color(GRID); ax.tick_params(axis='x',colors=INK2,labelsize=9.5); ax.tick_params(axis='y',length=0)
-ax.set_title('How much carbon do plants pay their mycorrhizal fungi?',loc='left',fontsize=13.5,color=INK,pad=26)
-ax.text(0,1.035,'ELM-FUN percentages are the share of NPP (before the nutrient cost is paid). Study values are group means read from your figures, about ±3 g C m⁻² yr⁻¹.',
+ax.set_title('How much carbon do plants pay their mycorrhizal fungi?',loc='left',fontsize=13.5,color=INK,pad=38)
+ax.text(0,1.03,'ELM-FUN percentages are the share of NPP (before the nutrient cost is paid).\nStudy values are group means read from your figures, about ±3 g C m⁻² yr⁻¹.',
         transform=ax.transAxes,fontsize=9.3,color=INK2,va='bottom')
 ax.legend(loc='lower right',frameon=False,fontsize=9.5,labelcolor=INK)
 plt.tight_layout(); plt.savefig('fig1_ELM_vs_thisstudy_by_group.png',dpi=150,facecolor=SURF); print('   wrote fig1_ELM_vs_thisstudy_by_group.png')
