@@ -29,8 +29,12 @@ pixel-level points cannot be recovered from the images.
   constant (0.99 EcM / 0.01 AM / 0.50 for PFT 7), not a spatial MFT map.
 - The 2022 source carries two inherited FUN defects (hardcoded, so paramfile-independent):
   (A) non-myc kc/kn swapped orientation in the live tier (CTSM #2120 lineage); (B) `ivt.eq.7` typo that puts
-  PFT 7 (temperate broadleaf deciduous) in the C4-grass/corn active-cost tier. Both bias mycorrhizal
-  allocation; treat published ELM values as a modest LOWER bound, and treat the PFT-7 group as least reliable.
+  PFT 7 (temperate broadleaf deciduous) in the C4-grass/corn active-cost tier. **Re-examined 2026-09-16 (evening):** in the 2022 code the swap (A) sits only in the PFT 3 (larch) tier (all other tiers have
+  kc = kn, so a swap is a no-op), the PFT 7 typo (B) is numerically inert (the wrong tier has the same 0.025/0.050 values as the
+  default), and the fixation fix (C) makes fixation 7-12 gC/gN, still ~10x dearer than ELM's mycorrhizal uptake (0.16-0.86 gC/gN
+  area means). Expected effect of the corrections on mycorrhizal C: small, slightly downward (larch; N-poor cells). The earlier
+  'lower bound' statement is withdrawn. The BNFMIP site shifts (Manaus 0.7->10.8, Harvard 0.3->8.2 gC/m2/yr from A+B) came from a
+  newer code with the swap in ALL PFTs and do not transfer.
 - Boreal soil mineral N over-accumulates in ELM (known), which cheapens N uptake and likely depresses boreal
   mycorrhizal allocation (2.1% of NPP).
 - AM natural grasses come out very high (~108 gC/m2/yr, ~34% of NPP) — flag, not yet explained.

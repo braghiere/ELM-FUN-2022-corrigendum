@@ -195,3 +195,13 @@ AD 5684779 → ADJ 5684780 → FN 5684781 → TR ctl 5684782 / TR abc 5684783 �
 **Result (18:20):** AD 5684779 at **684 sim-yr/day** (4,167 hourly steps per minute; above the 2020 record of ~550), zero balance
 warnings, UCX inter-node `ud_verbs/mlx4_0:1`. ETA: AD 260 yr ≈ 9 h (→ ~03:30 Sep 17), FN 540 yr ≈ 19–20 h (→ ~Sep 17 23:00),
 both FUN-P transients in parallel 161 yr ≈ 10 h (→ ~Sep 18 10:00), analysis e-mail right after. Total ≈ 1.7 days.
+
+### Expected size of the correction for the mycorrhizal partition (2026-09-16 evening, from the code)
+- Fix B is numerically inert in the 2022 code: the mistyped tier (`ivt 14/7/18`) has kc_active = 0.25/10, kn_active = 0.50/10 = the
+  default tier's 0.025/0.050. Kept for correctness; expect zero effect.
+- Fix A changes only the PFT 3 (larch) tier: every other tier has kc_nonmyc = kn_nonmyc (0.15/0.15 or 0.015/0.015), so the swap is
+  a no-op there. For larch the fix lowers the root-C term ×0.1 and raises the soil-N term ×10; with abundant boreal SMINN the net is
+  cheaper root uptake → likely less mycorrhizal C for larch.
+- Fix C: fixation cost 900–27,000 → 7–12 gC/gN, versus ELM mycorrhizal N uptake at 0.16 (boreal) / 0.86 (temperate) / 0.56 (tropics)
+  gC/gN area means (published 2001–2010). Fixation becomes viable only in N-poor cells. **The rerun's main published-number change
+  is symbiotic BNF (≈0 in the 2022 product), not the mycorrhizal partition.** Ashley draft and README corrected accordingly.
