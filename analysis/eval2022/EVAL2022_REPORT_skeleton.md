@@ -27,3 +27,21 @@
 
 ## 3. Still needed from the author
 - ISLSCP II (IGBP) NPP and Fisher et al. (2012) TNL layers; CMIP6 11-model NPP (Arora et al. 2020 set) for Fig. 3/4b.
+
+## 1b. OPEN — carbon-budget non-closure of the 2022-tree flux diagnostics (`budget_closure.py`, `budget_closure.log`)
+Global 1994–2005 (archived products) and 1860–1879 (control), Pg C/yr:
+| product | GPP | AR | HR | fire (PFT_FIRE_CLOSS) | GPP−AR−HR−fire−LUC | d(stocks)/dt | unexplained |
+|---|---|---|---|---|---|---|---|
+| archived ELM (FUN off) | 146.3 | 75.0 | 99.6 | 5.8 | −35 | +7.5 | ≈ −42 |
+| archived FUN2.0 | 143.3 | 86.4 | 84.1 | ~3 | −31 | +5.8 | ≈ −37 |
+| archived FUN3.0 | 122.8 | 86.6 | 51.9 | 2.9 | −19 | +2.3 | ≈ −21 |
+| control rerun (FUN-P on) 1860–79 | 96.3 | 70.0 | 44.2 | 1.6 | −20 | −3.8 | ≈ −16 |
+| FN spin-up, 2020 tree, FUN off | 111.0 | 69.4 | 37.9 | n/a | +3.8 (= fire) | ~0 | ≈ 0 |
+The 2020 tree closes; every 2022-family product does not: HR exceeds the litter + CWD inputs (archived ELM: 99.6 vs 60.3 + 12.4)
+while soil carbon rises, and the model's own NEE/NBP diagnostics (a 20–37 Pg C/yr source) follow the fluxes, not the stocks.
+The internal balance check of the 2022 tree closes to ≈ 4e-5 gC/m² per hour (≈ 0.05 Pg C/yr globally) in the FUN-off test, so the
+state is conserved and the inconsistency is in the history flux diagnostics (candidates: FUN cost booked into AR *and* respired as
+HR after entering the soil — explains ≈ 10 of the control's 16; a double accumulation of decomposition fluxes in the 2022 tree for the
+FUN-off case — unexplained 42 Pg C/yr in the archived ELM). Consequences if confirmed: the paper's ER, NEE, NBP, Fig. S10/S11 and the
+ILAMB Reco/NEE/NBP scores are built on inconsistent fluxes; NPP, GPP, stocks and nutrient fluxes are not affected. Proposed test:
+a short FUN-off transient in the 2022 tree with the balance report re-enabled and HR compared with the soil-C tendency.
