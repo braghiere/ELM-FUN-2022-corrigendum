@@ -4,3 +4,4 @@ corr22fix AD=5684725 ADJ=5684726 FN=5684727 TR=5684728 2026-09-16
 cancelled 5684744-5684755 chain at 17:52 (cbalance flood, 3 yr/day); see PLAN.md
 test_lch4off 5684757: cancelled 17:56, cbalance flood even with use_lch4=.false.
 5684782/5684783 TR died at init (dynpft check: c180306 surfdata vs c141219 landuse); 5684784 report ran on nothing 2026-09-18
+5687027/5687028 cancelled at ~1910-1913 (CO2 file ends 2007); continued as 5687518/5687519 from r.1910 with rcp4.5 CO2 2026-09-18

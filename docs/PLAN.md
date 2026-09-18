@@ -231,3 +231,6 @@ loaded record; the diagnosed `PCO2` falls from 34.7 Pa (Jan 2009) to 16 Pa (Jan 
 (2) any 2001–2010 means of the archived product are biased (the Ashley layers/numbers were 2001–2010 → being redone for 1994–2005);
 (3) our two transients inherited the same file → they are restarted at 1910 with `fco2_datm_rcp4.5_1765-2500_c130312.nc` (the file the
 2020 spin-up itself used; identical to c100614 over 1850–2005, see log), so 2006–2010 get real CO₂.
+- **18:5x Sep 18 — transients restarted from r.1910 with the RCP4.5 CO₂ file** (identical to c100614 over 1850–2005; covers 2006–2010):
+  control 5687518, corrected 5687519 (continue runs, STOP_N=101), report 5687520. Original TR jobs 5687027/28 cancelled at model
+  years 1910/1913. Everything before 1910 is unchanged (same restart chain).

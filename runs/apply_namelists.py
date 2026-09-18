@@ -24,6 +24,9 @@ if phase=='fn':
     t=t.replace('fix_global_v2_f19_f19_ICB1850CNRDCTCBC_ad_spinup.clm2.r.0261', ad+'.clm2.r.0261')
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+ad+'/run/', t)
 if phase=='tr':
+    # the v6 file fco2_datm_1765-2007 ends in 2007 and the model reads past it (PCO2 -> 0 by mid-2010 in the archived products);
+    # use the RCP4.5 series (identical 1850-2005, covers 2006-2010) — the same file the 2020 spin-up used
+    t=t.replace('fco2_datm_1765-2007_c100614.nc','fco2_datm_rcp4.5_1765-2500_c130312.nc')
     t=t.replace('fix_global_v2_f19_f19_ICB1850CNPRDCTCBC.clm2.r.0541', fn+'.clm2.r.0541')   # fn = corr22spin20_f19_f19_ICB1850CNPRDCTCBC (shared spin-up)
     t=re.sub(r"finidat *= *'[^']*/run/", "finidat = '"+runroot+'/'+fn+'/run/', t)
 t=re.sub(r"/lustre/or-hydra/cades-ccsi/scratch/braghiere/[^/']+/run/", runroot+'/'+case+'/run/', t)
