@@ -1,85 +1,84 @@
-START AD corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup Wed Sep 16 18:16:50 EDT 2026
+START FN corr22spin20_f19_f19_ICB1850CNPRDCTCBC Thu Sep 17 03:40:46 EDT 2026
 Creating component namelists
-  2026-09-16 18:16:50 atm
+  2026-09-17 03:40:46 atm
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 18:16:50 lnd
+  2026-09-17 03:40:46 lnd
    Calling /home/braghiere/E3SM_latest/E3SM/components/clm/cime_config/buildnml
-  2026-09-16 18:16:51 ice
+  2026-09-17 03:40:48 ice
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 18:16:51 ocn
+  2026-09-17 03:40:48 ocn
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 18:16:51 rof
+  2026-09-17 03:40:48 rof
    Calling /home/braghiere/E3SM_latest/E3SM/components/mosart/cime_config/buildnml
-  2026-09-16 18:16:51 glc
+  2026-09-17 03:40:48 glc
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 18:16:51 wav
+  2026-09-17 03:40:48 wav
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 18:16:51 iac
+  2026-09-17 03:40:48 iac
    Running /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 18:16:51 esp
+  2026-09-17 03:40:48 esp
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 18:16:51 cpl
+  2026-09-17 03:40:48 cpl
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
 Checking that inputdata is available as part of case submission
 Loading input file list: 'Buildconf/clm.input_data_list'
-Model clm no file specified for finidat
 Loading input file list: 'Buildconf/mosart.input_data_list'
 Loading input file list: 'Buildconf/cpl.input_data_list'
 Check case OK
 submit_jobs case.run
 Submit job case.run
 Starting job script case.run
-2026-09-16 18:16:52 CASE.RUN BEGINS HERE
-2026-09-16 18:16:52 RUN_MODEL BEGINS HERE
-2026-09-16 18:16:52 PRE_RUN_CHECK BEGINS HERE
-2026-09-16 18:16:53 NAMELIST CREATION BEGINS HERE
-Generating namelists for /home/braghiere/E3SM_latest/E3SM/cime/scripts/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup
+2026-09-17 03:40:49 CASE.RUN BEGINS HERE
+2026-09-17 03:40:49 RUN_MODEL BEGINS HERE
+2026-09-17 03:40:49 PRE_RUN_CHECK BEGINS HERE
+2026-09-17 03:40:50 NAMELIST CREATION BEGINS HERE
+Generating namelists for /home/braghiere/E3SM_latest/E3SM/cime/scripts/corr22spin20_f19_f19_ICB1850CNPRDCTCBC
 Creating component namelists
-  2026-09-16 18:16:53 atm
+  2026-09-17 03:40:50 atm
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/satm/cime_config/buildnml
-  2026-09-16 18:16:53 lnd
+  2026-09-17 03:40:50 lnd
    Calling /home/braghiere/E3SM_latest/E3SM/components/clm/cime_config/buildnml
-  2026-09-16 18:16:53 ice
+  2026-09-17 03:40:50 ice
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sice/cime_config/buildnml
-  2026-09-16 18:16:53 ocn
+  2026-09-17 03:40:50 ocn
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/socn/cime_config/buildnml
-  2026-09-16 18:16:53 rof
+  2026-09-17 03:40:50 rof
    Calling /home/braghiere/E3SM_latest/E3SM/components/mosart/cime_config/buildnml
-  2026-09-16 18:16:53 glc
+  2026-09-17 03:40:50 glc
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sglc/cime_config/buildnml
-  2026-09-16 18:16:53 wav
+  2026-09-17 03:40:50 wav
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/swav/cime_config/buildnml
-  2026-09-16 18:16:53 iac
+  2026-09-17 03:40:50 iac
    Running /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/siac/cime_config/buildnml 
-  2026-09-16 18:16:53 esp
+  2026-09-17 03:40:50 esp
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/components/stub_comps/sesp/cime_config/buildnml
-  2026-09-16 18:16:53 cpl
+  2026-09-17 03:40:50 cpl
    Calling /home/braghiere/E3SM_latest/E3SM/cime/src/drivers/mct/cime_config/buildnml
 Finished creating component namelists
-2026-09-16 18:16:54 NAMELIST CREATION HAS FINISHED
+2026-09-17 03:40:50 NAMELIST CREATION HAS FINISHED
 -------------------------------------------------------------------------
- - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run
+ - Prestage required restarts into /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNPRDCTCBC/run
  - Case input data directory (DIN_LOC_ROOT) is /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/inputdata 
  - Checking for required input datasets in DIN_LOC_ROOT
 -------------------------------------------------------------------------
-2026-09-16 18:16:54 PRE_RUN_CHECK HAS FINISHED
+2026-09-17 03:40:50 PRE_RUN_CHECK HAS FINISHED
 run command is srun  -n 384  --cpu-bind=cores /lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/bld/e3sm.exe   >> e3sm.log.$LID 2>&1  
-2026-09-16 18:16:54 SAVE_PRERUN_PROVENANCE BEGINS HERE
-2026-09-16 18:16:54 SAVE_PRERUN_PROVENANCE HAS FINISHED
-2026-09-16 18:16:54 MODEL EXECUTION BEGINS HERE
-2026-09-17 03:38:57 MODEL EXECUTION HAS FINISHED
-2026-09-17 03:38:57 POST_RUN_CHECK BEGINS HERE
-2026-09-17 03:38:57 POST_RUN_CHECK HAS FINISHED
-2026-09-17 03:38:57 RUN_MODEL HAS FINISHED
-2026-09-17 03:38:57 GET_TIMING BEGINS HERE
-2026-09-17 03:38:57 GET_TIMING HAS FINISHED
-2026-09-17 03:39:01 SAVE_POSTRUN_PROVENANCE BEGINS HERE
-2026-09-17 03:39:01 SAVE_POSTRUN_PROVENANCE HAS FINISHED
+2026-09-17 03:40:50 SAVE_PRERUN_PROVENANCE BEGINS HERE
+2026-09-17 03:40:51 SAVE_PRERUN_PROVENANCE HAS FINISHED
+2026-09-17 03:40:51 MODEL EXECUTION BEGINS HERE
+2026-09-18 01:21:19 MODEL EXECUTION HAS FINISHED
+2026-09-18 01:21:19 POST_RUN_CHECK BEGINS HERE
+2026-09-18 01:21:19 POST_RUN_CHECK HAS FINISHED
+2026-09-18 01:21:19 RUN_MODEL HAS FINISHED
+2026-09-18 01:21:19 GET_TIMING BEGINS HERE
+2026-09-18 01:21:19 GET_TIMING HAS FINISHED
+2026-09-18 01:21:26 SAVE_POSTRUN_PROVENANCE BEGINS HERE
+2026-09-18 01:21:26 SAVE_POSTRUN_PROVENANCE HAS FINISHED
 check for resubmit
 dout_s False 
 mach cades 
 resubmit_num 0
-2026-09-17 03:39:01 CASE.RUN HAS FINISHED
+2026-09-18 01:21:26 CASE.RUN HAS FINISHED
 Submitted job case.run with id None
-END AD rc=0 Thu Sep 17 03:39:01 EDT 2026
+END FN rc=0 Fri Sep 18 01:21:26 EDT 2026

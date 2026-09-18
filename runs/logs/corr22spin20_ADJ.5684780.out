@@ -1,0 +1,7 @@
+/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup.clm2.h1.0261-01-01-00000.nc
+/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/runs/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup/run/corr22spin20_f19_f19_ICB1850CNRDCTCBC_ad_spinup.clm2.r.0261-01-01-00000.nc
+/home/braghiere/elm_fun_trendy_2022/OLMT/adjust_restart.py:96: UserWarning: Warning: converting a masked element to nan.
+  if (float(rest_vals[i]) > 0.0 and float(hist_vals[0][i]) < 1.0e10 and float(hist_vals[0][i]) > 0.001):
+/home/braghiere/elm_fun_trendy_2022/OLMT/adjust_restart.py:109: UserWarning: Warning: converting a masked element to nan.
+  if (float(rest_vals[i][j]) > 0.0 and float(hist_vals[0][j][i]) < 1.0e10 and float(hist_vals[0][j][i]) > 1e-10):
+adjust_restart OK Thu Sep 17 03:40:42 EDT 2026
