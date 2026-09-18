@@ -6,7 +6,7 @@ import json, numpy as np, matplotlib; matplotlib.use('Agg'); import matplotlib.p
 d=json.load(open('/home/braghiere/ashley_mycorrhizal/replot_data.json')); A=d['ashley_x_from_figure']; E=d['elm_groups']
 groups=list(A.keys()); cols=plt.cm.YlGnBu(np.linspace(0.3,0.95,len(groups)))
 fig,ax=plt.subplots(1,2,figsize=(17.5,7.4))
-fig.suptitle('Re-plot of the ELM-FUN comparison with the correct variable  (ELM: fix_global_v6_funp, 2001–2010 mean, dominant-PFT >30%, NPP>100 gC m$^{-2}$ yr$^{-1}$; bars = p10–p90; PROVISIONAL, corrected rerun in progress)',fontsize=11)
+fig.suptitle('Re-plot of the ELM-FUN comparison with the correct variable  (ELM: fix_global_v6_funp, 1994–2005 mean, dominant-PFT >30%, NPP>100 gC m$^{-2}$ yr$^{-1}$; bars = p10–p90; PROVISIONAL, corrected rerun in progress)',fontsize=11)
 for g,c in zip(groups,cols):
     x,lo,hi=A[g]; e=E[g]
     ax[0].errorbar(x,e['cost_sum'],xerr=[[x-lo],[hi-x]],fmt='D',ms=9,color=c,mec='k',ecolor=c,capsize=3,label=g)

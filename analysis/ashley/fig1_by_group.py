@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 1 for Ashley: carbon spent on mycorrhizal fungi, ELM-FUN (2022 run, 2001-2010) vs her study, by her vegetation groups.
+"""Figure 1 for Ashley: carbon spent on mycorrhizal fungi, ELM-FUN (2022 run, 1994-2005) vs her study, by her vegetation groups.
 Paired horizontal bars; reference categorical palette slots 1-2 (validated adjacent pair); text in ink tokens."""
 import json, numpy as np, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 d=json.load(open('replot_data.json')); A=d['ashley_x_from_figure']; E=d['elm_groups']
@@ -11,7 +11,7 @@ elm=[E[g]['mycC'] for g in groups]; her=[A[g][0] for g in groups]; pct=[E[g]['pc
 BLUE,ORANGE='#2a78d6','#eb6834'; INK,INK2,SURF,GRID='#0b0b0b','#52514e','#fcfcfb','#e6e5e1'
 fig,ax=plt.subplots(figsize=(10.5,6.2)); fig.patch.set_facecolor(SURF); ax.set_facecolor(SURF)
 y=np.arange(len(groups))[::-1]; h=0.36
-b1=ax.barh(y+h/2+0.02,elm,height=h,color=BLUE,label='ELM-FUN model (2022 run, 2001 to 2010 average)')
+b1=ax.barh(y+h/2+0.02,elm,height=h,color=BLUE,label='ELM-FUN model (2022 run, 1994 to 2005 average)')
 b2=ax.barh(y-h/2-0.02,her,height=h,color=ORANGE,label='This study (hyphal C allocation, group means)')
 for yi,v,p in zip(y+h/2+0.02,elm,pct): ax.text(v+1.5,yi,f"{v:.0f}   ({p:.1f}% of NPP)",va='center',ha='left',fontsize=9,color=INK2)
 for yi,v in zip(y-h/2-0.02,her): ax.text(v+1.5,yi,f"{v:.0f}",va='center',ha='left',fontsize=9,color=INK2)

@@ -3,7 +3,15 @@
 from data/<label>_series.npz. Usage: fig3_4.py <label1> [<label2> ...]  (published_ELM published_FUN2 published_FUNP control corrected ...)
 Benchmarks (MODIS NPP, IGBP NPP, CMIP6) are drawn if data/benchmarks/{modis_npp_zonal.npz, igbp_npp_zonal.npz, cmip6_npp_zonal.npz} exist."""
 import sys, os, numpy as np, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
-labels=sys.argv[1:]; D='/home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/data/'; S={l:np.load(D+f'{l}_series.npz') for l in labels}
+INVALID_FROM=2009   # archived products: CO2 forcing file ends 2007 -> PCO2 collapses from mid-2009; mask published series from 2009
+labels=sys.argv[1:]; D='/home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/data/'; S={}
+for l in labels:
+    z=dict(np.load(D+f'{l}_series.npz'))
+    if l.startswith('published'):
+        bad=z['years']>=INVALID_FROM
+        for v in ('GPP','NPP','AR','HR','NBP'):
+            if v in z: z[v]=np.where(bad,np.nan,z[v])
+    S[l]=z
 COL={'published_ELM':'#7f7f7f','published_FUN2':'#eda100','published_FUNP':'#2a78d6','control':'#1baf7a','corrected':'#eb6834'}
 def c(l): return COL.get(l,'#4a3aa7')
 fig,ax=plt.subplots(2,2,figsize=(15,9))
@@ -17,8 +25,8 @@ ax[0,0].set_xlabel('latitude'); ax[0,0].set_ylabel('zonal mean NPP 1994–2005 (
 # 4a global NPP series + box
 for l in labels:
     y=S[l]['years']; v=S[l]['NPP']; m=y>=1855; ax[0,1].plot(y[m],v[m],color=c(l),lw=1.6,label=f'{l} (mean {np.nanmean(v[m]):.1f})')
-ax[0,1].set_ylabel('global NPP (Pg C yr$^{-1}$)'); ax[0,1].set_title('Fig. 4a',loc='left'); ax[0,1].legend(fontsize=8,frameon=False); ax[0,1].grid(alpha=.3)
-ins=ax[0,1].inset_axes([0.78,0.08,0.2,0.5]); ins.boxplot([S[l]['NPP'][S[l]['years']>=1855] for l in labels],widths=0.6,medianprops=dict(color='k')); ins.set_xticks([]); ins.tick_params(labelsize=7); ins.set_title('1855–2010',fontsize=7)
+ax[0,1].set_ylabel('global NPP (Pg C yr$^{-1}$)'); ax[0,1].set_title(f'Fig. 4a  (archived products masked from {INVALID_FROM}: CO$_2$ forcing file ends 2007)',loc='left',fontsize=10); ax[0,1].legend(fontsize=8,frameon=False); ax[0,1].grid(alpha=.3)
+ins=ax[0,1].inset_axes([0.78,0.08,0.2,0.5]); ins.boxplot([S[l]['NPP'][(S[l]['years']>=1855)&np.isfinite(S[l]['NPP'])] for l in labels],widths=0.6,medianprops=dict(color='k')); ins.set_xticks([]); ins.tick_params(labelsize=7); ins.set_title('1855–2010',fontsize=7)
 # S10: GPP, AR, HR
 for l in labels:
     y=S[l]['years']
