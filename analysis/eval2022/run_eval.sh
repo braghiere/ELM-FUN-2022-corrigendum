@@ -25,4 +25,11 @@ for f in 5 6 7 S5; do step "fig $f" $PY fig_maps.py $PER $f published_FUNP contr
 step "fig 8"  $PY fig8_biomes.py $PER published_FUNP control corrected
 step "fig 9"  $PY fig9_limitation.py $PER published_FUNP published_FUNP control corrected
 step "fig 3/4/S10/S11" $PY fig3_4.py published_ELM published_FUN2 published_FUNP control corrected
+# 4. ILAMB: CMORize the reruns (full 1850-2010; their CO2 forcing is valid to 2010) and benchmark all five products
+IR=/lustre/or-scratch24/scratch/braghiere/corrigendum_2022/ilamb_root
+mkdir -p $IR/MODELS/control $IR/MODELS/corrected
+step "cmorize control"   $PY ilamb/cmorize_elm.py control   "$CTL/*.clm2.h0.????-??.nc" $IR/MODELS/control
+step "cmorize corrected" $PY ilamb/cmorize_elm.py corrected "$ABC/*.clm2.h0.????-??.nc" $IR/MODELS/corrected
+step "ILAMB all five" bash -c "cd $IR && ILAMB_ROOT=$IR /home/braghiere/miniconda3/envs/ilamb/bin/ilamb-run --config /home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/ilamb/ilamb_elmfun.cfg --model_root $IR/MODELS --models ELM ELM_FUN ELM_FUNP control corrected --study_limits $Y0 $Y1 --regions global --build_dir $IR/_build_all_$PER"
+cp $IR/_build_all_$PER/scores.csv ilamb/scores_all_$PER.csv 2>/dev/null
 echo "=== done $(date)" | tee -a $LOG
