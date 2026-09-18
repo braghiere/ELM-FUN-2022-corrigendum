@@ -34,7 +34,7 @@ for l in labels:
 ax[1,0].set_ylabel('Pg C yr$^{-1}$'); ax[1,0].set_title('Fig. S10: GPP (solid), AR (dashed), HR (dotted)',loc='left'); ax[1,0].legend(fontsize=6.5,frameon=False,ncol=2); ax[1,0].grid(alpha=.3)
 # S11a cumulative NBP
 for l in labels:
-    if 'NBP' in S[l].files and np.isfinite(S[l]['NBP']).any(): ax[1,1].plot(S[l]['years'],np.nancumsum(S[l]['NBP']),color=c(l),lw=1.6,label=l)
+    if 'NBP' in S[l] and np.isfinite(S[l]['NBP']).any(): ax[1,1].plot(S[l]['years'],np.nancumsum(S[l]['NBP']),color=c(l),lw=1.6,label=l)
 ax[1,1].set_ylabel('cumulative NBP since 1850 (Pg C)'); ax[1,1].set_title('Fig. S11a',loc='left'); ax[1,1].legend(fontsize=8,frameon=False); ax[1,1].grid(alpha=.3)
 plt.tight_layout(); out='/home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/fig3_4_S10_S11_'+'_'.join(labels)+'.png'; plt.savefig(out,dpi=120); print('   wrote',out)
 for l in labels: y=S[l]['years']; m=(y>=1994)&(y<=2005); print(f"   {l}: NPP 1994-2005 mean {np.nanmean(S[l]['NPP'][m]):.1f} Pg C/yr; GPP {np.nanmean(S[l]['GPP'][m]):.1f}; CUE {100*np.nanmean(S[l]['NPP'][m])/np.nanmean(S[l]['GPP'][m]):.1f} %")

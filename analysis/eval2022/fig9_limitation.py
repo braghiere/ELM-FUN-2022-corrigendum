@@ -18,11 +18,14 @@ Rc,Ac,natc,_,_=R_and_mask(cal); logR=np.log(Rc[natc]); w=Ac[natc]; o=np.argsort(
 lo=float(np.exp(logR[o][np.searchsorted(cw,0.061)])); hi=float(np.exp(logR[o][np.searchsorted(cw,1-0.139)]))
 print(f'   thresholds calibrated on {cal} {period}: N-limited if R < {lo:.3f}, P-limited if R > {hi:.3f} (co-limited between); log-symmetry check: ln(lo)={np.log(lo):+.2f}, ln(hi)={np.log(hi):+.2f}')
 json.dump({'calibration':cal,'period':period,'R_lo':lo,'R_hi':hi},open(f'fig9_thresholds_{period}.json','w'),indent=1)
-n=len(labels); fig,ax=plt.subplots(1,n,figsize=(6.2*n,3.4),squeeze=False); cmap=ListedColormap(['#e34948','#bfbfbf','#2a78d6']); res={}
+n=len(labels); fig,ax=plt.subplots(2,n,figsize=(6.2*n,6.6),squeeze=False); cmap=ListedColormap(['#e34948','#bfbfbf','#2a78d6']); res={}
+# row 2: continuous index as in the paper's Figure 9 (-1 = more P limited, +1 = more N limited): -ln(R) clipped to [-1,1]
 for j,l in enumerate(labels):
     R,A,nat,lat,lon=R_and_mask(l); cls=np.where(R<lo,0,np.where(R>hi,2,1)).astype(float); cls[~nat]=np.nan
     fr=[100*A[nat&(cls==k)].sum()/A[nat].sum() for k in (0,1,2)]; res[l]={'N_limited_%':fr[0],'co_limited_%':fr[1],'P_limited_%':fr[2]}
     LON,LAT=np.meshgrid(lon,lat); ax[0,j].pcolormesh(LON,LAT,cls,cmap=cmap,vmin=-0.5,vmax=2.5,shading='auto'); ax[0,j].set_title(f'{l}: N-limited {fr[0]:.1f} %  co-limited {fr[1]:.1f} %  P-limited {fr[2]:.1f} %',fontsize=9)
     ax[0,j].set_xticks([]); ax[0,j].set_yticks([]); [ax[0,j].spines[s].set_visible(False) for s in ax[0,j].spines]
+    idx=np.where(nat,np.clip(-np.log(R),-1,1),np.nan); m2=ax[1,j].pcolormesh(LON,LAT,idx,cmap='RdBu_r',vmin=-1,vmax=1,shading='auto'); ax[1,j].set_title(f'{l}: continuous index  −ln R  (blue = more P limited, red = more N limited)',fontsize=9)
+    ax[1,j].set_xticks([]); ax[1,j].set_yticks([]); [ax[1,j].spines[s].set_visible(False) for s in ax[1,j].spines]; plt.colorbar(m2,ax=ax[1,j],shrink=0.8,pad=0.01)
 fig.suptitle(f'Braghiere et al. (2022) Figure 9 redrawn — {period}; paper: N 6.1 %, co 80.0 %, P 13.9 % (red = N, gray = co, blue = P); thresholds R<{lo:.2f} / R>{hi:.2f} calibrated on {cal}',fontsize=9)
 out=f'/home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/fig9_{period}_'+'_'.join(labels)+'.png'; plt.savefig(out,dpi=120,bbox_inches='tight'); print('   wrote',out); print('  ',json.dumps(res))

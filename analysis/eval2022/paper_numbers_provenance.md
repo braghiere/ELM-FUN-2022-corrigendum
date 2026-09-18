@@ -33,3 +33,20 @@ PNONMYC 22.7 (20.9), PRETRANS 7.2 (7.3). A double land-fraction weighting reprod
 1–3 %; the correct area×landfrac integration is 10–11 % higher. The paper's C-cost totals (2.5 / 1.6 Pg C/yr) and AM/EcM split
 are not reproduced by any weighting of any surviving run. Fig. 9 thresholds calibrated on the archived product: R < 0.927
 (N-limited) / R > 1.082 (P-limited), a log-symmetric ±8 % band, giving 6.0 / 80.1 / 13.9 % (paper 6.1 / 80.0 / 13.9 %).
+
+## What the paper's own figures show (checked against the published images)
+- Fig. 3a (zonal mean NPP, 1994–2005): the published curves (E3SM peak ≈ 1400, FUN3.0 ≈ 800 g C m⁻² yr⁻¹ at the equator) match our
+  recomputation from the archived products (1410 / 780). Zonal means are independent of the global area weighting.
+- Fig. 4a (global NPP 1850–2010): the published lines reach ≈ 78–80 (ELM), ≈ 60 (FUN2.0), ≈ 38–40 (FUN3.0) Pg C/yr by 2005, i.e. ≈ 8 %
+  ABOVE our area × landfrac integration (71.5 / 57.0 / 36.3 for 1994–2005), whereas the text values (64.8 / 51.2 / 32.2) are ≈ 10 %
+  BELOW it. The text and the figure therefore used different weightings; neither is the standard area × landfrac integration.
+  The published box plots show outliers at ≈ 5–20 Pg C/yr for all three products — consistent with the 2010 CO₂ collapse being
+  present in the plotted data.
+
+## The paper's maps come from the archived v6 product, and Fig. 5a is mislabelled
+Colour-bar maxima of the published Fig. 5 versus the archived product's 1994–2005 land maxima (g N m⁻² yr⁻¹):
+direct root uptake 3.64 vs NNONMYC 3.644; retranslocation 3.46 vs NRETRANS 3.458; AM uptake 21.99 vs NAM 21.989 (exact matches, so
+the maps were drawn from this product). Panel (a) "symbiotic biological N fixation", colour bar to 1.09, matches **FFIX_TO_SMINN**
+(free-living fixation, max 1.093; Amazon 0.72, Congo 0.79), whereas symbiotic **NFIX** has a maximum of 0.001 and a global total of
+0.00 Tg N/yr (Defect C: hardcoded fixation cost 900–27,000 gC/gN). Fig. 5a therefore shows free-living fixation, and the paper's
+"total biological N fixation 35.3 Tg N/yr" (compared with Davies-Barnard & Friedlingstein's 52–130) is free-living fixation only.
