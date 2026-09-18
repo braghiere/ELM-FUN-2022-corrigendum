@@ -1,0 +1,6 @@
+START TR corr22ctl_f19_f19_ICB20TRCNPRDCTCBC Fri Sep 18 13:41:16 EDT 2026
+Creating component namelists
+  2026-09-18 13:41:17 atm
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/cime/src/components/stub_comps/satm/cime_config/buildnml
+  2026-09-18 13:41:17 lnd
+   Calling /home/braghiere/elm_fun_trendy_2022/E3SM_global/components/clm/cime_config/buildnml

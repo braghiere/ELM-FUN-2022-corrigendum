@@ -205,3 +205,18 @@ both FUN-P transients in parallel 161 yr ≈ 10 h (→ ~Sep 18 10:00), analysis 
 - Fix C: fixation cost 900–27,000 → 7–12 gC/gN, versus ELM mycorrhizal N uptake at 0.16 (boreal) / 0.86 (temperate) / 0.56 (tropics)
   gC/gN area means (published 2001–2010). Fixation becomes viable only in N-poor cells. **The rerun's main published-number change
   is symbiotic BNF (≈0 in the 2022 product), not the mycorrhizal partition.** Ashley draft and README corrected accordingly.
+
+### 2026-09-18 — transients died at init (dynamic-PFT consistency check); cause and fix
+- FN spin-up completed 01:21 (540 yr, 572 sim-yr/day, r.0541, TOTECOSYSC flat at 2730 Pg C). Both transients (5684782/83) aborted at
+  step 0: `dynpft_check_consistency mismatch` — OLMT (2023) staged `surfdata_1.9x2.5_simyr1850_c180306.nc` with the
+  `landuse.timeseries_…c141219.nc` series; the two disagree at 1850 in 2784 of 6528 land cells (up to 64 % of a PFT). The wrapper
+  reported rc=0 because `case.submit --no-batch` returns 0 on a model abort → report job ran on nothing. Wrapper now fails unless
+  cpl.log has SUCCESSFUL TERMINATION.
+- **What 2020 did (from data):** published ELM_FUNP `PCT_NAT_PFT` at 1850/1900/2000 matches the c141219 series to ≤0.14 % and differs
+  from c180306 by up to 64 %; the surviving v3 AD h0 matches `c171002` (the models_v3.2 OLMT default) exactly. Every f19 1850 surface
+  file from c130412 to c171002 is consistent with c141219; only c180306 is not. The v2 spin-up (E3SM_latest OLMT, makepointdata edited
+  2020-06-10 13:50, case created 14:13) used c180306 — as ours did. The v6 transient (models_v3.2 OLMT) used c171002 with
+  `check_finidat_fsurdat_consistency=.false.`, i.e. the 2020 workflow itself switched surface dataset between spin-up and transient.
+- **Fix (replicates 2020):** transient `surfdata.nc` ← `nccopy -7 -u` of c171002 (identical to OLMT's staging transform, verified
+  data-identical, PCT_NAT_PFT == pftdyn[1850]); c180306 copies kept as `surfdata.nc.c180306_staged_by_olmt`. Resubmitted:
+  TR ctl 5687027, TR abc 5687028, report 5687029.
