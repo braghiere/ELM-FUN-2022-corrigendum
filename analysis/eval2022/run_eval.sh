@@ -32,4 +32,5 @@ step "cmorize control"   $PY ilamb/cmorize_elm.py control   "$CTL/*.clm2.h0.????
 step "cmorize corrected" $PY ilamb/cmorize_elm.py corrected "$ABC/*.clm2.h0.????-??.nc" $IR/MODELS/corrected
 step "ILAMB all five" bash -c "cd $IR && ILAMB_ROOT=$IR /home/braghiere/miniconda3/envs/ilamb/bin/ilamb-run --config /home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/ilamb/ilamb_elmfun.cfg --model_root $IR/MODELS --models ELM ELM_FUN ELM_FUNP control corrected --study_limits $Y0 $Y1 --regions global --build_dir $IR/_build_all_$PER"
 cp $IR/_build_all_$PER/scores.csv ilamb/scores_all_$PER.csv 2>/dev/null
+step "assemble report" $PY assemble_report.py $PER
 echo "=== done $(date)" | tee -a $LOG
