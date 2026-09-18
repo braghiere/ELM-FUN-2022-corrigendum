@@ -220,3 +220,14 @@ both FUN-P transients in parallel 161 yr ≈ 10 h (→ ~Sep 18 10:00), analysis 
 - **Fix (replicates 2020):** transient `surfdata.nc` ← `nccopy -7 -u` of c171002 (identical to OLMT's staging transform, verified
   data-identical, PCT_NAT_PFT == pftdyn[1850]); c180306 copies kept as `surfdata.nc.c180306_staged_by_olmt`. Resubmitted:
   TR ctl 5687027, TR abc 5687028, report 5687029.
+
+### 2026-09-18 — the archived 2022 products are invalid after mid-2009 (CO₂ forcing file ends in 2007)
+While building the side-by-side evaluation (`analysis/eval2022/`), the annual series of ALL THREE published products (ELM, ELM-FUN2.0,
+ELM-FUN3.0) collapse identically at the end: global GPP 186 → 0 Pg C/yr between Jul 2009 and Jul 2010, NPP to −74 Pg C/yr, 62 % of
+land cells with NPP < 0 by late 2010. Cause: the transient namelist's `co2_file = fco2_datm_1765-2007_c100614.nc` (243 annual values,
+1765–2007) is indexed in `lnd_import_export.F90` as `nindex = min(max(yr,1850),2100) − 1764` with no bound, so 2008–2010 read past the
+loaded record; the diagnosed `PCO2` falls from 34.7 Pa (Jan 2009) to 16 Pa (Jan 2010) and 0.002 Pa (Jul 2010). Consequences:
+(1) the paper's 1994–2005 evaluation period is unaffected; its 1855–2010 time series (Fig. 4a, S10, S11) include ~15 corrupt months;
+(2) any 2001–2010 means of the archived product are biased (the Ashley layers/numbers were 2001–2010 → being redone for 1994–2005);
+(3) our two transients inherited the same file → they are restarted at 1910 with `fco2_datm_rcp4.5_1765-2500_c130312.nc` (the file the
+2020 spin-up itself used; identical to c100614 over 1850–2005, see log), so 2006–2010 get real CO₂.

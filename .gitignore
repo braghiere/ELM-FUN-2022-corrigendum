@@ -3,3 +3,4 @@
 *.h1.*.nc
 *.log
 __pycache__/
+analysis/eval2022/paper2022/
