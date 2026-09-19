@@ -33,4 +33,7 @@ step "cmorize corrected" $PY ilamb/cmorize_elm.py corrected "$ABC/*.clm2.h0.????
 step "ILAMB all five" bash -c "cd $IR && ILAMB_ROOT=$IR /home/braghiere/miniconda3/envs/ilamb/bin/ilamb-run --config /home/braghiere/ELM-FUN-2022-corrigendum/analysis/eval2022/ilamb/ilamb_elmfun.cfg --model_root $IR/MODELS --models ELM ELM_FUN ELM_FUNP control corrected --study_limits $Y0 $Y1 --regions global --build_dir $IR/_build_all_$PER"
 cp $IR/_build_all_$PER/scores.csv ilamb/scores_all_$PER.csv 2>/dev/null
 step "assemble report" $PY assemble_report.py $PER
+# 5. e-mail the assembled report from THIS (login) node: compute nodes have no working mail relay (the 09-18 report job's mail never arrived)
+FIGS=$(ls fig8_${PER}_*.png fig9_${PER}_*.png fig5_${PER}_*.png fig3_4_S10_S11_*.png 2>/dev/null | head -4 | sed 's/^/-a /' | tr '\n' ' ')
+{ echo "Side-by-side evaluation (Braghiere et al. 2022 redone) finished $(date). Report + figures in analysis/eval2022/ (pushed to GitHub)."; echo; cat EVAL2022_REPORT.md; } | mail -s "[ELM-FUN 2022 corrigendum] EVAL2022 report $PER" $FIGS renatob@caltech.edu && echo "mailed" | tee -a $LOG
 echo "=== done $(date)" | tee -a $LOG
