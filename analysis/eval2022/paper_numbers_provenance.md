@@ -50,3 +50,15 @@ the maps were drawn from this product). Panel (a) "symbiotic biological N fixati
 (free-living fixation, max 1.093; Amazon 0.72, Congo 0.79), whereas symbiotic **NFIX** has a maximum of 0.001 and a global total of
 0.00 Tg N/yr (Defect C: hardcoded fixation cost 900–27,000 gC/gN). Fig. 5a therefore shows free-living fixation, and the paper's
 "total biological N fixation 35.3 Tg N/yr" (compared with Davies-Barnard & Friedlingstein's 52–130) is free-living fixation only.
+
+## The archived product and the released code are different versions (settled 2026-09-19)
+- The paper's public code (github.com/braghiere/E3SM-FUN3.0, `E3SMv1-FUN3.0.patch`) is byte-identical to the local v7 patch and carries the
+  **23 Sep 2020** `CNFUNMod.F90` (md5 a2f2674b) — the same file as the 2022 tree used for our reruns (kn_nonmyc tiers 0.15, fixation
+  override, PFT-7 typo, larch tier all present).
+- The archived v6 product (Zenodo) was produced on **29 Aug 2020** with an earlier module (md5 f38e9ed0, kept in
+  `models_v3.2/output/global/fix_global_v5_1994_2005/`): 72 code lines differ, all FUN cost constants — e.g. default active tier
+  kc/kn 0.3/0.1 → 0.15/0.025; default non-mycorrhizal kc/kn 0.01/0.90 → 0.15/0.15; the C4-grass/17/18 non-myc tier 0.10/9.00 → 0.15/0.15.
+- Consequence, visible in the side-by-side: the control (released code) reproduces the archived N and P fluxes, NPP, GPP and stocks
+  within 1–3 % but not the carbon-cost diagnostics: C cost of N acquisition 3.05 vs 3.77 Pg C/yr (−19 %), mycorrhizal N-cost carbon
+  2,134 vs 2,815 Tg C/yr, and a different P-cost partition (mycorrhizal 415 vs 948, root 412 vs 1,058 Tg C/yr; total 4.46 vs 4.92).
+  The paper's C-cost figures (Fig. 8, S5) and text therefore describe a code state that is not the released one.

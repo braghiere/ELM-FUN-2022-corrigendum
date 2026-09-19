@@ -11,7 +11,7 @@ CMOR={ # name: (elm vars, factor, units, long_name)
  'npp':(['NPP'],G2KG,'kg m-2 s-1','Net Primary Production on Land'),'nbp':(['NBP'],G2KG,'kg m-2 s-1','Net Biome Production'),
  'ra':(['AR'],G2KG,'kg m-2 s-1','Autotrophic Respiration'),'rh':(['HR'],G2KG,'kg m-2 s-1','Heterotrophic Respiration'),
  'nee':(['NEE'],G2KG,'kg m-2 s-1','Net Ecosystem Exchange'),'lai':(['TLAI'],1.,'1','Leaf Area Index'),
- 'cVeg':(['TOTVEGC'],G2KG,'kg m-2','Carbon Mass in Vegetation'),'cSoil':(['TOTSOMC'],G2KG,'kg m-2','Carbon Mass in Soil Pool'),
+ 'cVeg':(['TOTVEGC'],G2KG,'kg m-2','Carbon Mass in Vegetation'),'cSoil':(['TOTSOMC_1m'],G2KG,'kg m-2','Carbon Mass in Soil Pool (top 1 m, as in the 2022 CMOR set)'),'cSoilTotal':(['TOTSOMC'],G2KG,'kg m-2','Carbon Mass in Soil Pool (full column)'),
  'hfls':(['EFLX_LH_TOT'],1.,'W m-2','Surface Upward Latent Heat Flux'),'hfss':(['FSH'],1.,'W m-2','Surface Upward Sensible Heat Flux'),
  'tas':(['TSA'],1.,'K','Near-Surface Air Temperature'),'pr':(['RAIN','SNOW'],1.,'kg m-2 s-1','Precipitation'),
  'rsds':(['FSDS'],1.,'W m-2','Surface Downwelling Shortwave Radiation'),'evspsbl':(['QSOIL','QVEGE','QVEGT'],1.,'kg m-2 s-1','Evaporation')}

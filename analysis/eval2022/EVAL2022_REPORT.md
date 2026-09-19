@@ -98,3 +98,30 @@ Columns: **published_FUNP** = archived ELM-FUN3.0 (v6, Zenodo 10.5281/zenodo.204
 
 ## Findings independent of the reruns
 See `paper_numbers_provenance.md`, `ilamb/ILAMB_vs_paper_fig2.md`, `budget_closure.log`, `SNEAK_PEEK_1860-1879.md`.
+
+## Synthesis (1994–2005; full tables above)
+**Control vs archived (does the released code reproduce the paper product?)** Yes for everything except the carbon-cost bookkeeping:
+GPP 122.6 vs 122.8, NPP 36.5 vs 36.2 Pg C/yr, total N uptake 958 vs 943 Tg N/yr, P uptake 54.2 vs 53.7 Tg P/yr, free-living BNF 39.9 vs 39.9,
+vegetation C 435 vs 434 and soil C 2,049 vs 2,046 Pg C; zonal NPP and the 1850–2010 NPP series overlay the archived lines (Fig. 3a/4a).
+C cost of N acquisition 3.05 vs 3.77 Pg C/yr and the P-cost partition differ because the archived product came from an earlier code
+(see provenance note). ILAMB scores of control = archived to two decimals for GPP, LAI, NEE, respiration, biomass.
+
+**Corrected vs control (what the three fixes change).**
+| quantity | control | corrected | change |
+|---|---|---|---|
+| symbiotic N fixation | 0.00 Tg N/yr | 3.13 Tg N/yr | switched on (realized cost 4,082 → 7.96 gC/gN) |
+| total BNF (symbiotic + free-living) | 39.9 | 43.1 Tg N/yr | +8 % |
+| C spent on fixation | 0.9 | 24.9 Tg C/yr | |
+| C cost of N acquisition | 3.05 | 2.92 Pg C/yr (8.3 → 8.0 % of NPP) | −4 % |
+| mycorrhizal N-cost carbon | 2,134 | 2,022 Tg C/yr | −5 % |
+| direct-root N-cost carbon | 680 | 648 Tg C/yr | −5 % |
+| total N uptake | 958 | 963 Tg N/yr | +0.5 % |
+| NPP / GPP | 36.5 / 122.6 | 36.7 / 122.8 Pg C/yr | +0.5 % / +0.2 % |
+| vegetation C / soil C | 435 / 2,049 | 436 / 2,052 Pg C | +0.2 % / +0.1 % |
+| P cycle (uptake, costs, partition) | | | unchanged (< 0.5 %) |
+| N-limited / co-limited / P-limited land | 7.6 / 78.3 / 14.1 % | 7.5 / 78.4 / 14.1 % | unchanged |
+| ILAMB scores (biomass, GPP, LAI, NEE, Reco, soil C, ET) | | | identical to two decimals |
+Reading: the corrections switch symbiotic fixation on at a physical price but it stays small (3 Tg N/yr, a tenth of free-living
+fixation, far below the 52–130 Tg N/yr of Davies-Barnard & Friedlingstein 2020) because mycorrhizal and root uptake cost 0.2–0.9 gC/gN in
+this model; everything else the paper reports moves by ≤ 5 %. The paper's conclusions about carbon costs, NPP reduction and N–P
+co-limitation stand; the statements about symbiotic fixation (Fig. 5a, the 35.3 Tg N/yr) do not — that flux was free-living fixation.
