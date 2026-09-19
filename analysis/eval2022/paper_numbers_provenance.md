@@ -62,3 +62,12 @@ the maps were drawn from this product). Panel (a) "symbiotic biological N fixati
   within 1–3 % but not the carbon-cost diagnostics: C cost of N acquisition 3.05 vs 3.77 Pg C/yr (−19 %), mycorrhizal N-cost carbon
   2,134 vs 2,815 Tg C/yr, and a different P-cost partition (mycorrhizal 415 vs 948, root 412 vs 1,058 Tg C/yr; total 4.46 vs 4.92).
   The paper's C-cost figures (Fig. 8, S5) and text therefore describe a code state that is not the released one.
+
+## Fig. 8 (biome carbon costs) is not reproducible from the archived product's cost variables
+The published Fig. 8 shows N-acquisition carbon of ≈ 6 g C m⁻² yr⁻¹ in grassland, ≈ 12 in deciduous broadleaf forest, ≈ 1.5 in
+evergreen broadleaf forest, with retranslocation ≈ 80 % of the deciduous-broadleaf share and ≈ 30–50 % elsewhere. The archived product's
+direct cost diagnostics (NPP_NUPTAKE at PFT level; NPP_NACTIVE/NNONMYC/NRETRANS/NFIX by dominant biome) give 103, 5 and 10 g C m⁻² yr⁻¹
+respectively, with retranslocation ≤ 1 % everywhere (mycorrhizal 72–80 %, root 20–28 %). The published bars are consistent with the
+2020 PFT-level pipeline that derived pathway carbon as nutrient flux ÷ time-mean cost efficiency (N/COST_*), a construction that we
+showed does not close (pathway sums of 165–216 % of the total) and that inflates retranslocation where COST_NRETRANS is small.
+Fig. 8's magnitudes and pathway shares therefore need re-deriving in the corrigendum from the direct cost variables.
