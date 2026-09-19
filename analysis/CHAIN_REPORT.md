@@ -3,6 +3,11 @@
 Runs: control, corrected_ABC, published_2022. Differences are relative to `control`.
 
 
+> **Caveat (added 2026-09-19):** the `published_2022` column averages the archived product's last 120 months (2001–2010), which include the
+> ~15 months after mid-2009 when its CO₂ forcing collapsed (GPP → 0). Its NPP/GPP are therefore biased low by ~10–15 %. The clean
+> comparison over the paper's 1994–2005 period is in `analysis/eval2022/EVAL2022_REPORT.md`. The control and corrected columns are unaffected
+> (their CO₂ forcing covers 2010).
+
 ## GLOBAL
 
 | quantity | control | corrected_ABC | published_2022 | Δ corrected_ABC−control | Δ published_2022−control |
