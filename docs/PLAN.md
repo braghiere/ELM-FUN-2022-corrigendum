@@ -283,3 +283,5 @@ corrigendum scope decision; email delivery from CADES unverified.
   + `case.setup --reset` regenerated `Macros.make/Macros.cmake` without the OLMT `-DCPL_BYPASS` define (the check is inside
   `#ifndef CPL_BYPASS`). Copied the control's Macros into both cases, clean rebuild (`runs/rebuild_and_submit_cbal.sh`), which submits and
   arms the analysis waiter when the build log shows the define. Lesson for the memory: never `case.setup --reset` an OLMT cpl_bypass clone.
+- 17:34 clean rebuilds verified (511 compile lines, 509 with `-DCPL_BYPASS`, driver included). Budget tests resubmitted: FUN off 5693312,
+  FUN on 5693313 (12 nodes each; estimated start 20:42, most batch nodes down or drained). Analysis waiters armed for both.
