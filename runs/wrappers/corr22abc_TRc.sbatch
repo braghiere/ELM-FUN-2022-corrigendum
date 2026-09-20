@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A ccsi -p batch --nodes=12 --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00
+#SBATCH -A ccsi -p batch --nodes=12 --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00 --exclude=or-condo-c[196-299]
 #SBATCH --job-name=corr22abc_TRc --output=/home/braghiere/ELM-FUN-2022-corrigendum/runs/logs/corr22abc_TRc.%j.out --mail-user=renatob@caltech.edu --mail-type=END,FAIL
 source /etc/profile.d/modules.sh 2>/dev/null; module purge; module load python/3.10.14 2>/dev/null
 export PATH=/home/braghiere/bin:/sw/cades-open/python/3.10.14/bin:$PATH

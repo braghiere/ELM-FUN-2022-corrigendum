@@ -1,0 +1,273 @@
+Overall, we found N and P co‐limitation for 80% of land area, with the remaining 20% being either predominantly N or P limited.
+
+Globally, the new model predicts that plants invested 4.1 Pg C yr −1 to acquire 841.8 Tg N yr −1 and 48.1 Tg P yr −1 (1994–2005), leading to significant downregulation of global net primary production (NPP).
+
+Global NPP is reduced by 20% with C costs of N and 50% with C costs of NP.
+
+Modeled and observed nutrient limitation agreement increases when N and P are considered together ( r 2 from 0.73 to 0.83).
+
+Nitrogen and phosphorus co‐limit 80% of the land area Global Net Primary Production is reduced by 50% when the cost of nitrogen and phosphorus acquisitions are considered at the same time status released display-pdf yes is-in-collection-domain yes is-olf no is-manuscript no is-preprint no is-journal-matter no is-scanned no is-retracted no Revised 2022 Aug 2; Received 2022 May 18; Accepted 2022 Aug 6; Issue date 2022 Aug. 1.
+
+Introduction Terrestrial ecosystems have been a persistent post‐industrial carbon (C) sink, absorbing almost a third of all anthropogenic C emissions (Arora et al., 2020 ; Ciais et al., 2013 ; Friedlingstein et al., 2019 ; Schimel et al., 2015 ).
+
+It remains uncertain whether this rate of uptake will persist in the future (Friedlingstein et al., 2006 , 2014 ; Zhang et al., 2019 ), although it is broadly expected that limiting factors such as nutrient availability might mediate the responses of terrestrial ecosystems to elevated CO 2 and climate change (Fleischer et al., 2019 ; Terrer et al., 2019 ; Wieder et al., 2015a , 2019 ; Zaehle et al., 2010 ).
+
+While N availability is essentially unlimited as an atmospheric gas (N 2 ), although highly reliant on fixers, P comes from rock phosphate, renewed with the uplift of continental rock in geological timescales (Guignard et al., 2017 ).
+
+Apart from these significant differences in availability and turnover time, both nutrients play a crucial role on photosynthetic processes, cell growth, metabolism, and protein synthesis, while nucleic acids are approximately made of 39% N and nearly 9% P by mass (Chapin et al., 2000 ; Guignard et al., 2017 ; Sterner & Elser, 2002 ).
+
+In the latest coupled model intercomparison project phase 6 (CMIP6; Eyring et al.
+
+( 2020 ) suggested that model uncertainty is reduced in the CMIP6 simulations when N cycling is included.
+
+However, most of these models assume that N and P are unrealistically acquired at no C cost to plants (Davies‐Barnard et al., 2020 ), or these costs are to an extent implicitly included in autotrophic respiration, but without explicitly representations.
+
+Maintenance respiration is defined as the C cost to support the metabolic activity of plant living tissues, while growth respiration is defined as the additional C cost for the synthesis of new growth (Oleson et al., 2013 ).
+
+While maintenance respiration is associated with protein and membrane turnover and maintenance of ion concentrations and gradients, growth respiration is associated with growth processes such as synthesis of new structures in growth (Lötscher et al., 2004 ).
+
+Some evidence suggests that trees can allocate up to 20% of NPP to symbiotic and free‐living microbes in the rhizosphere to increase their access to N (Brzostek et al., 2015 ; Hobbie, 2006 ; Högberg & Högberg, 2002 ).
+
+By accounting for N and P limitation at the same time, some ESMs project reductions in global NPP by as much as 25% (Allen et al., 2020 ; Goll et al., 2012 ; Wang et al., 2010 ), with some models suggesting that the land surface will become a source of C to the atmosphere by the end of the 21st century (Wieder et al., 2015a ), although still highly debatable (Brovkin & Goll, 2015 ; Sun et al., 2017 ; Wieder et al., 2015b ).
+
+The incorporation of P dynamics into FUN2.0, mirroring the existing model structure for N, led to a new model version, FUN3.0 (with a name update: FUN, Allen et al., 2020 ).
+
+The Fixation and Uptake of Nutrients (FUN) Model (FUN3.0) Within FUN, plants use C for N or P uptake by preferentially using dynamically varying pathways that are “cheaper” to them.
+
+Decreasing nutrient availability in soil and leaves leads to higher C expenditure on nutrient uptake and thus reduced growth (Fisher et al., 2019 ).
+
+In the original FUN1.0 model, plants obtain N through the following alternative and most common pathways: (a) active uptake, (b) retranslocation, and (c) symbiotic biological N fixation, which presents concurrent costs in terms of C, determined by the abundance of N in soils and plant tissues, and the temperature‐dependent cost of N fixation (Bloom et al., 1985 ; Fisher et al., 2019 ; Jiang et al., 2017 ; Rastetter et al., 2001 ; Riahi et al., 2017 ; Terrer et al., 2018 ).
+
+FUN3.0 was validated over 45 temperate forest plots in Indiana, USA, and 18 tropical dry forest plots in Guanacaste, Costa Rica.
+
+The current PFT configuration of ELM follows CLM5; Lawrence et al.
+
+( 2019 ), which are based on broad plant groups relevant for global‐scale configurations (Wullschleger et al., 2014 ).
+
+To generate the trade‐offs between AM, ECM, and non‐mycorrhizal root uptake, FUN3.0 needs an estimate of the percentage of aboveground biomass that associates with each mycorrhizal type for each model grid cell (Braghiere, Fisher, et al., 2021 ; Brzostek et al., 2014 ; Shi et al., 2016 ).
+
+These PFT fractions are coarse and do not extensively capture the spatial heterogeneity in mycorrhizal association, particularly in mixed‐mycorrhizal PFTs, such as tropical (Waring et al., 2016 ) and temperate forests (Phillips et al., 2013 ).
+
+Regarding N fixation, following the implementation in CLM5 (Fisher et al., 2019 ) each PFT has an associated maximum fraction of the C acquisition that can be used for fixing N, defined as a constant fraction for natural PFTs (25%).
+
+FUN3.0 was coupled to ELM using thirteen input variables (Table S1 in Supporting Information S1 ) with most of them being directly calculated by the C‐N‐P processes of ELM including: available soil N (N soil ) and available soil P (P soil ), fine root biomass (C root ), leaf N before senescence (N leaf ), leaf P before senescence (P leaf ), NPP (C NPP ), soil temperature (T soil ), and evapotranspiration (ET).
+
+Model Configuration and Simulations Global simulations were performed at hourly 1.9° × 2.5° spatiotemporal resolution.
+
+All three model simulations were spun up using ELM for 200 years of accelerated decomposition mode, followed by 600 years of regular spin up (Koven et al., 2013 ; Thornton & Rosenbloom, 2005 ), while soil P pools were initialized from observations (Yang et al., 2013 ) at the beginning of the regular spin up.
+
+We analyzed a 12 year (1994–2005) period and investigated the role of N and P in affecting the responses of NPP to three configurations of the model: ELM only (CNP cycles without the FUN model), ELM‐FUN2.0 (CNP cycles with the FUN model for N only), and ELM‐FUN3.0 (CNP cycles with the FUN model for N and P).
+
+These factorial experiments allow us to disentangle the impacts of N and P in isolation and in combination. 2.3.
+
+( 2014 ); (f) net ecosystem exchange (NEE) from FLUXNET2015 (Pastorello et al., 2020 ); (g) the top 1‐m soil C stock with the Harmonized World Soil Database (HWSD; Todd‐Brown et al., 2013 ); and (viii) evapotranspiration (ET) from the Global Land Evaporation Amsterdam Model (GLEAM) v3.3a (Martens et al., 2017 ).
+
+The relationships of the evaluated variables with precipitation, temperature, and surface incident shortwave radiation were performed using data products from the global precipitation climatology project (GPCP) Monthly Analysis version 2.3 (Adler et al., 2018 ), the climatic research unit (CRU) monthly temperature version 4.02 (Harris et al., 2014 ), and the clouds and the earth's radiant energy system (CERES) surface irradiances edition 4.1 (Kato et al., 2018 ; Loeb et al., 2018 ).
+
+S R M S E x is the spatial RMSE score for each x meteorological variable in Equation 1.2 .
+
+NPP results from our simulations are also compared with the NPP from 11 CMIP6 models (the same 11 models evaluated in Arora et al.
+
+Projects such as the CMIP6 (Eyring et al., 2016 ) have allowed for consistent comparison of the response of the C cycle under climate change from existing state‐of‐the‐art ESMs.
+
+We note that our simulations are done offline with atmospheric forcing data, such as in LUMIP (Lawrence et al., 2016 ) and TRENDY (Sitch et al., 2015 ), while CMIP models also simulate atmospheric states in coupled runs through the historical period.
+
+Moreover, FUN3.0 improves model performance even further when compared to FUN2.0.
+
+The relationships of the evaluated variables with precipitation, incident shortwave radiation, and temperature also improved with ELM‐FUN3.0 (Figure 2 ).
+
+All the ILAMB plots comparing ELM, ELM‐FUN2.0, and ELM‐FUN3.0 are available from https://braghiere.github.io/ILAMB_ELM_FUN_reduced_v1/ .
+
+ELM‐FUN2.0 simulates mean NPP of 51.2 Pg C yr −1 (1994–2005), which is 13.6 Pg C yr −1 less than that simulated by ELM for the same period.
+
+This implies a downregulation of global annual NPP by 21.0%.
+
+Zonally, NPP was reduced across all latitudes in ELM‐FUN2.0 relative to ELM (Figure 3a ).
+
+In ELM‐FUN3.0, NPP was 32.2 PgCyr −1 on average from 1994 to 2005, which is 32.6 PgCyr −1 less than that simulated by ELM for the same period, a reduction of 50.3% in global annual NPP.
+
+Zonally, NPP was reduced across all latitudes in ELM‐FUN3.0 relative to ELM (Figure 3 ).
+
+Additionally, the global mean C Use Efficiency (CUE; defined as NPP/GPP) is negatively impacted when considering the C costs of N and P acquisition (Figure S11b in Supporting Information S1 ), going from ∼30% in ELM to ∼20% in ELM‐FUN3.0.
+
+Although CUE is a highly uncertain metric, previous studies indicate that natural ecosystems present a CUE of 32%–47% (Campioli et al., 2015 ; Malhi et al., 2009 ).
+
+The r 2 , RMSE, and slope values are shown in brackets.
+
+The NPP zonal mean (along the latitudinal component) from all three simulations with ELM are shown in scatter plots compared to the zonal mean of MODIS NPP (Figure 3b ), IGBP NPP (Figure 3c ), and the zonal mean NPP from the ensemble member of 11 CMIP6 models (Figure 3d ).
+
+For MODIS NPP, considering the C costs of N acquisition in ELM increased the r 2 of the linear relationship from 0.32 to 0.84 and reduced the root mean squared error (RMSE) by 52% from 223.2 gCm −2 yr −1 to 107.7 gCm −2 yr −1 , while the slope also changed from 1.26 to 1.03.
+
+Adding the C costs of P acquisition on top of the costs of N acquisition increased r 2 to 0.86 and reduced the RMSE by 54%–102.0 gCm −2 yr −1 , while the slope changed to 0.73.
+
+For the IGBP NPP linear relationship, the RMSE decreased 56% from 152.4 gCm −2 yr −1 with ELM to 67.6 gCm −2 yr −1 with ELM‐FUN2.0%, and 2% to 148.61 gCm −2 yr −1 with ELM‐FUN3.0.
+
+For the CMIP6 ensemble member NPP, the RMSE decreased 42% from 142.9 gCm −2 yr −1 with ELM to 82.6 gCm −2 yr −1 with ELM‐FUN2.0, but increased 9% (155.9 gCm −2 yr −1 ) with ELM‐FUN3.0.
+
+The r 2 , RMSE, and slope of all model runs and products are shown in Figure 3 .
+
+In general, the relationships between modeled zonal NPP with ELM and these three data products seem to be improved when the C costs of nutrient acquisition are considered (Figure 3b ), although the addition of both nutrients seems to underestimate NPP, potentially because of implicit compensating mechanisms already present in the ELM NPP without FUN.
+
+Global NPP presents a reduction of ∼20% when considering the C costs of N acquisition and ∼50% when considering the C costs of N and P at the same time.
+
+The MODIS NPP data product values are at the lower end of the ELM‐FUN2.0 distribution and at the upper end of the ELM‐FUN3.0 distribution.
+
+Global MODIS NPP is also shown for reference (2000–2015).
+
+Dots represent outliers not included in the box plot; (b) scatter plot of the mean (1994–2005) zonal normalized C use ratio for nutrient uptake (%) from ELM‐FUN2.0 (N only), ELM‐FUN3.0 (N and P together) versus the remotely sensed Total Nutrient Limitation product from Fisher et al.
+
+The r 2 , RMSE, and slope values are show in brackets.
+
+However, during spin up (200 years in accelerated decomposition mode + 600 years in normal mode), the CNP pools are brought to equilibrium without the FUN model, that is, ELM only for all three model configurations as described in Section 2.2 .
+
+The year 1850 equilibrium conditions were calculated by integrating over a repeating 20‐year period of an atmospheric reanalysis data set (i.e., years 1901–1920 from the forcing data sets) along with fixed atmospheric CO 2 , N deposition, and P deposition.
+
+During the accelerated decomposition phase, the decomposition of the slow C pools (e.g., the long turnover time soil C and coarse woody debris pools) are artificially increased to allow faster convergence on the equilibrium state (Lawrence et al., 2019 ).
+
+Therefore, it is expected that in the initial years of the transient simulation, simulations with ELM–FUN versions show a pulse in autotrophic respiration during the first years because of a new C source to autotrophic respiration from FUN, but over time respiration declines relative to ELM (Figure S10 in Supporting Information S1 ).
+
+Nevertheless, the evaluations performed in this study focus on the period 1994–2005, or 144 years after model equilibrium was reached in order to minimize the possible impacts of the model initialization from cold start (Meier et al., 2018 ; Shi et al., 2016 ).
+
+( 2012 ) coupled remotely sensed estimates of NPP and ET to identify areas where light and water are not limiting factors on productivity.
+
+Overall, the NPP downregulation fraction simulated by ELM–FUN3.0 presents a similar global spatial distribution to that of the nutrient limitation product from Fisher et al.
+
+( 2012 ) and the zonal mean of the normalized C use ratio for N acquisition in FUN2.0, and N + P acquisition in FUN3.0.
+
+The C use ratio is defined as the ratio of C spent on N acquisition (FUN2.0) or N + P acquisition (FUN3.0) to the total C available to the plant.
+
+( 2012 ) increases when N and P are considered together.
+
+The r 2 increases from 0.73 to 0.83 and the RMSE decreases from 4.3% to 3.7%. 3.2.
+
+ELM–FUN3.0 simulated the mean annual global total N uptake as 841.8 Tg N yr −1 .
+
+While the global total mycorrhizal root uptake is 659.9 Tg N yr −1 , mostly due to AM fungi associations (73.0% of the total mycorrhizal root uptake or 482.1 Tg N yr −1 ), with the remaining 27.0% due to ECM fungi association (177.8 Tg N yr −1 ) (Figure 5 ); the direct root uptake is 84.3 Tg N yr −1 .
+
+Total biological N fixation comprises 35.3 Tg N yr −1 , nearly an order of magnitude lower than the total of mycorrhizal and non‐mycorrhizal root uptake.
+
+In the northern hemisphere, temperate forests have higher symbiotic N fixation values than other ecosystems (Figure 5 ).
+
+This estimate is near the lowest boundary of a global compilation study suggesting that biological N fixation is between 52 and 130 Tg N yr −1 (Davies‐Barnard & Friedlingstein, 2020 ) (Figure S8 in Supporting Information S1 ).
+
+The total amount of retranslocated N and P from leaves globally are 97.6 Tg N yr −1 and 7.3 Tg P yr −1 , respectively.
+
+Tropical and temperate forests, as well as grasslands and crop areas in the southeastern USA, Asia, and southern South America have relatively higher retranslocation rates (Figure 5 ).
+
+These high N and P retranslocation values are driven by high LAI and the proportional high leaf N and leaf P concentrations simulated by ELM‐FUN3.0.
+
+Moreover, the retranslocation efficiency values for N and P, that is, the ratio of the retranslocated nutrient to the amount of nutrient in dead leaves prior to senescence, varies from less than 15% in grassland areas in China and southern South America, to up to 50% in the boreal regions for N and P, and savannas for N, which is in agreement with observations (Aerts, 1996 ).
+
+The tropics have a highly variable N retranslocation efficiency ranging from around 30% in the broadleaf evergreen forests to 50% over grasslands (Figure 7a ), and a P retranslocation efficiency of around 40% (Figure 7b ), which seems slightly underestimated in comparison to observational studies that indicate 50% (Aerts, 1996 ; Reed et al., 2012 ).
+
+ELM–FUN3.0 simulated the mean annual global total P uptake of 48.1 Tg P yr −1 , compared to that simulated by E3SMv1.1‐CTC of 42.0 Tg P yr −1 and by E3SMv1.1‐ECA (Equilibrium Chemistry Approximation) of 63.0 Tg P yr −1 (Burrows et al., 2020 ).
+
+The global total mycorrhizal root uptake is 20.0 Tg P yr −1 , due largely to AM, which is 55.4% of the total mycorrhizal root uptake (11.1 Tg P yr −1 ) (Figure 6 ), with 44.6% of the remaining from ECM (8.9 Tg P yr −1 ) (Figure 6 ); direct root uptake is 20.9 Tg P yr −1 .
+
+ELM‐FUN3.0 estimated that 8% of NPP or 2.5 Pg C yr −1 was spent by plants to take up N.
+
+The two largest amounts of C were spent on mycorrhizal root uptake (i.e., 1891.7 Tg C yr −1 or 74.9%) and on direct root uptake (i.e., 623.0 Tg C yr −1 or 24.7%), respectively.
+
+The C spent on retranslocation was 20.6 Tg C yr −1 , which corresponds to 0.42% of the total used C.
+
+The C spent on N fixation was 0.8 Tg C yr −1 , which corresponds to 0.03% of the total used C.
+
+ELM‐FUN3.0 estimated that 5% of NPP or 1.6 Pg C yr −1 was spent by plants to acquire P.
+
+The two largest C expenditure fluxes were direct root uptake (i.e., 859.6 Tg C yr −1 or 52%) and mycorrhizal root uptake (i.e., 781.6 Tg C yr −1 or 47%), respectively.
+
+C spent on retranslocation was 4.2 Tg C yr −1 , which corresponds to 0.26% of the total used C.
+
+Grasslands had the highest C use rate for P acquisition (22.8 ± 6.2 g C m 2 yr −1 ) with 32% of the total C spent on P acquisition used to support retranslocation (Figure 8 ).
+
+Shrublands showed similar total C expenditure to deciduous broadleaf forests, with 38% and 40% of the total C spent on P acquisition used to support mycorrhizal root uptake, respectively.
+
+Evergreen broadleaf and evergreen needleleaf forests had a total C use rate of 3.3 ± 0.5 g C m 2 yr −1 and 2.1 ± 0.3 g C m 2 yr −1 , respectively.
+
+In terms of the main uptake pathway, mycorrhizae represent 49% and 55% of the total C spent on P acquisition in evergreen broadleaf and evergreen needleleaf forests, respectively.
+
+In deciduous needleleaf forests, retranslocation represents 89% of the total 0.4 ± 0.4 g C m 2 yr −1 spent on P acquisition.
+
+Global Spatial Distribution of Terrestrial N Versus P Limitation One metric of global N and P limitation is the ratio of leaf N and P to leaf N and P retranslocation–the stoichiometric homeostasis theory (Sterner & Elser, 2002 ), in which the demand ratio of N versus P for a mature leaf should be relatively constant to maintain leaf functioning (Du et al., 2020 ).
+
+ELM‐FUN3.0 indicates a stronger P limitation in the tropics (Figure 9 ), except over grasslands, which are more N limited (see Figure S4 in Supporting Information S1 ).
+
+Global mapping of ELM‐FUN3.0 predicted NP limitation for the period 1994–2005 following the stoichiometric homeostasis theory.
+
+Global N and P limitations were calculated using the ratio of leaf N and P over the ratio of leaf N and P retranslocation following the stoichiometric homeostasis theory (Sterner & Elser, 2002 ), in which the demand ratio of N versus P for a mature leaf should be relatively constant to maintain leaf functioning.
+
+Estimates indicate that 6.1% of the natural terrestrial land area is limited primarily by N, whereas 13.9% is primarily P limited.
+
+The remaining 80% of the land area is co‐limited by N and P or weakly limited by either nutrient alone.
+
+Estimates here indicate that 6.1% of the natural terrestrial land area is limited primarily by N, whereas 13.9% is primarily P limited.
+
+The remaining 80.0% of the land area is co‐limited by N and P or weakly limited by either nutrient alone.
+
+( 2020 ) (Figure S9 in Supporting Information S1 ), in which a larger part of the global terrestrial land area is more relatively P limited and less significantly limited by N. 4.
+
+Discussion Much of the uncertainty in ESMs projections of the future land C uptake is driven by how these models represent nutrient constraints on NPP (Ciais et al., 2013 ; Davies‐Barnard et al., 2020 ; Fernández‐Martínez et al., 2014 ; Fisher et al., 2012 ; Terrer et al., 2019 ; Wieder et al., 2015a ).
+
+Specifically, we evaluated the total amounts and the spatial distributions of N and P acquisition (Figures 5 and 6 ); the amounts and spatial distributions of C used for N and P acquisition (Figure 8 and Figure S5 in Supporting Information S1 ); and changes in NPP as a result of N and P acquisition and allocation at the global scale (Figure 4 ).
+
+ELM‐FUN3.0 is able to simulate the distribution of limitation comparably with existing (but limited) empirical estimates (Figure 9 and Figure S9 in Supporting Information S1 ), as well as the spatial distribution of the C used for acquiring these nutrients (Figure 4b ), which provide an important dynamic constraint on predictions of the future land C uptake.
+
+Accounting for N and N‐P limitation lowered historical estimates of NPP by 20% and 50%, respectively (Figure 4a ).
+
+Our result aligns with a previous study using CMIP5 models for N (Wieder et al., 2015a ), but shows a much stronger effect of P on NPP (twice as much).
+
+Although previous authors have reported the unlikelihood of the land actually becoming a net source of CO 2 (Brovkin & Goll, 2015 ), mainly due to changes in mineralization and additional processes governing the recycling of P, our simulations explicitly represent P dynamics and indicate a significant decrease in land C uptake.
+
+Similar results were reported for the Amazon, showing that P availability reduces the projected CO 2 ‐induced biomass growth by 50% compared to estimates from C models (Fleischer et al., 2019 ), although inconclusive based on limited observations (Turner et al., 2018 ).
+
+ELM‐FUN3.0 is on the low end of the CMIP6 NPP range, given that part of the available C is spent on P acquisition.
+
+ELM presents a positive GPP bias in comparison to FLUXCOM (0.65 g m −2 day −1 ), also reflected in LAI compared to MODIS (0.95 m 2 . m −2 ), while the model versions with FUN work to reduce the bias, especially in the tropics.
+
+Nevertheless, ELM‐FUN3.0 reduces tropical and arctic‐boreal LAI turning the positive bias into a negative one (−0.17 m 2 . m −2 ).
+
+Mycorrhizal Association Uncertainty in ELM It is likely that mycorrhizal associations can explain a large fraction of the variance in plant response to elevated CO 2 (Braghiere, Fisher, et al., 2021 ; Drake et al., 2011 ; Kivlin et al., 2013 ; Orwin et al., 2011 ; Sulman et al., 2017 ; Terrer et al., 2016 , 2018 ), because it has been estimated that fungal root symbionts may be responsible for as much as 80% of plant N and P uptake (van der Heijden et al., 2015 ).
+
+The rationale behind this assumption is based upon previously documented geographic distributions of plant symbiosis (Allen et al., 1995 ; Read, 1991 ; Shi et al., 2016 ), where a transition from AM to ECM dominance was reported at single site level observations following a common shift from P to N limitation along increasing latitudes (McGroddy et al., 2004 ; Reich & Oleksyn, 2004 ).
+
+The ELM model originated from CLM4.5 with a vertically resolved soil decomposition cascade, which is known for underestimating the production of mineral N resulting in a highly N‐limited terrestrial C sink (Koven et al., 2013 ).
+
+Likewise, although ELM considers major P cycle processes, including phosphatase activity, which can relieve P limitation with increasing P demand under elevated CO 2 , there are large uncertainties in the availability and dynamics of soil P (Yang et al., 2019 ).
+
+The new global implementation of mycorrhizal associations in ELM‐FUN3.0 would allow the development and exploration of this hypothesis.
+
+Terrestrial C budgets, as well as climate feedbacks, are different from C‐only versions because plant C production and allocation are strongly limited by N or P (or both) (Zaehle et al., 2015 ).
+
+Additional complexity in ESMs, while often justifiable from basic process understanding, has typically been accompanied by an ever‐increasing number of parameters (Fisher & Koven, 2020 ), many of which are poorly constrained by observations (Braghiere, Wang, et al., 2021 ).
+
+Parametric uncertainty in LSMs has been traditionally explored through experimentation with different parameter values in order to test different hypothesis on how these parameters impact predictions (Dagon et al., 2020 ; Hawkins et al., 2019 ; Huo et al., 2019 ; Ricciuto et al., 2018 ).
+
+For instance, root biomass does not necessarily need to be high if nutrient concentration is high, given non‐limitation of other factors (Aerts et al., 1991 ; Fisher et al., 2010 ).
+
+For instance, FUN simulates the ability of AM fungi to act as scavengers by reducing the AM C cost parameter relative to that of ECM fungi for N and increase for P to reflect the greater efficiency of different C‐intensive strategies (Raven et al., 2018 ).
+
+( 2019 ) assessed the sensitivity of CLM5 C and N cycles to the FUN cost parameters by conducting one‐at‐a‐time perturbations of the parameters around the default state at four flux tower sites, varying the cost parameters an order of magnitude in each direction from the default value, since reasonable ranges of these parameters are unknown and their physiological controls are poorly understood.
+
+For CO 2 and N enrichment experiments, the authors found moderate decline in LAI, NPP, and GPP when cost parameters increased, but highlighted that they do not appear to be a first‐order control parameter when compared to allocation parameters in CLM5.
+
+Similarly, low values of C costs parameters appeared to reduce the responsiveness of the system to CO 2 fertilization.
+
+( 2021 ) assessed the sensitivity of CLM5 C and N cycles to different spatial representations of mycorrhizal distributions globally and found differences of up to 8 TgN.yr −1 between different maps.
+
+Although the addition of FUN3.0 into ELM allows new capabilities for simulating global P uptake, including mycorrhizal dynamics, there are a number of processes that are still not represented in the model, such as P retranslocation from all senescing tissues, not only from leaves, soil biological traits and trade‐offs to optimize C allocation for P acquisition, such as capturing microbial species composition or changes in soil pH in response to P availability, as well as fixed allocation and resorption of P under soils with limited nutrient availability (Jiang et al., 2019 ).
+
+As incorporation of P dynamics into ESMs develops (Goll et al., 2012 ; Thum et al., 2019 ; Wang et al., 2007 ; Yang, Thornton, et al., 2014 , Yang, Post, et al., 2014 ; Zhu et al., 2019 ), these models are paving the way for increased inclusion of different P cycle processes (Reed et al., 2015 ).
+
+While large uncertainties in soil P dynamics are due to organic P, inorganic P is a key player in P dynamics (Helfenstein et al., 2020 ), and a separation of leaf P into organic and inorganic pools would be desirable to improve predictions of photosynthesis (Jiang et al., 2019 ).
+
+Integrating plant parametric adjustments to nutrient use efficiency, such as updating the maximum rate of Rubisco carboxylase activity or the maximum rate of photosynthetic electron transport (Braghiere et al., 2020 ; Walker et al., 2014 ), C‐N‐P ratios of newly formed soil organic matter during decomposition, priming effects on C, N, and P mineralization, and consideration of flexible plant tissue stoichiometry are among the high priority processes needed to be incorporated in further developments of ELM‐FUN3.0.
+
+The integration of new processes involving C‐N‐P dynamics can now feasibly be added into the cost structure of FUN3.0, given its highly modular nature (e.g., the cost functions) based on optimality approaches making use of economic concepts, recently advocated as one of the organizing principles to be used in next generation ESMs (Fisher & Koven, 2020 ; Franklin et al., 2020 ).
+
+In ELM‐FUN3.0 this is a fixed entity (25% for natural ecosystems).
+
+Conclusions Using a process model of the dynamics and C economics of N and P acquisition from the environment coupled into the E3SM land model, we evaluated the total amounts and the spatial distributions of N and P acquisition; the amounts and spatial distributions of C used for N and P acquisition; and changes in NPP as a result of N and P acquisition and allocation at the global scale.
+
+We benchmarked all the ELM‐FUN model versions indicating that considering the C costs of N and P acquisition are important for improving the representation of the C and water cycles, and that accounting for N and N‐P limitation lowered historical estimates of NPP by 20% and 50%, respectively.
+
+Modeled and observed nutrient limitation agreement increases when N and P are considered together ( r 2 from 0.73 to 0.83), but the likely nutrient limitation down‐regulation on NPP we attribute to FUN is in part attributable to the underestimated soil nutrient pools in ELM.

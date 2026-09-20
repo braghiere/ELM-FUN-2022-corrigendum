@@ -234,3 +234,44 @@ loaded record; the diagnosed `PCO2` falls from 34.7 Pa (Jan 2009) to 16 Pa (Jan 
 - **18:5x Sep 18 — transients restarted from r.1910 with the RCP4.5 CO₂ file** (identical to c100614 over 1850–2005; covers 2006–2010):
   control 5687518, corrected 5687519 (continue runs, STOP_N=101), report 5687520. Original TR jobs 5687027/28 cancelled at model
   years 1910/1913. Everything before 1910 is unchanged (same restart chain).
+
+## 2026-09-19/20 — carbon-budget tests, C4-grass dominance, number-by-number audit
+
+**Carbon-budget test runs** (why: the 2022-tree flux diagnostics do not close the global C budget; archived ELM gap ~ -36 Pg C/yr, control 1860-79 ~ -14 incl. FUN cost 9.9 + fire 1.6; 2020 tree closes to +3.8 ≈ fire).
+- `runs/srcmods_cbal/` = `srcmods_ctl` + instrumented `EcosystemBalanceCheckMod.F90`: report threshold 1e-7 -> 1e-4 gC/m2/step (no flood), the
+  diagnostic block runs with FUN on (`if(.true.)` replaces `if(.not.use_fun)`), and one reference column (Amazon, lat -2.84 lon 300, natural
+  vegetation) prints `CBALREF c in out er ar fire dC err` every step.
+- Cases (2022 tree, cloned from `corr22ctl_…TR`, rebuilt): `corr22cbal_funoff_f19_f19_ICB20TRCNPRDCTCBC` (use_fun/use_funp = .false.) and
+  `corr22cbal_funon_…` (FUN-P on). Startup from the control restart `…clm2.r.1990-01-01-00000.nc`, 1990-1991 (2 yr), monthly h0 with the full
+  budget set (GPP NPP AR MR GR HR ER NEE NEP NBP TOTCOLC TOTECOSYSC TOTSOMC TOTVEGC TOTLITC CWDC TOTPRODC CPOOL XSMRPOOL(+RECOVER)
+  COL/PFT_FIRE_CLOSS SOILC_CHANGE SOM_C_LEACHED DWT_CLOSS PRODUCT_CLOSS LAND_USE_FLUX WOOD_HARVESTC COL/PFT_CTRUNC NPP_N/PUPTAKE) and the same
+  set daily on h1 (`hist_nhtfrq = 0,-24; hist_mfilt = 1,365`). `runs/submit_cbal_tests.sh` -> jobs 5693293 (FUN off), 5693294 (FUN on),
+  12 nodes each, birthright nodes excluded. Analysis to do when they finish: (i) global GPP - AR - HR - fire - harvest - leaching vs
+  dTOTCOLC from h0/h1, FUN off vs on; (ii) the CBALREF series vs the same column's history; (iii) count and size of `column cbalance error`
+  reports with FUN on (never visible before because the block was skipped).
+
+**C4-grass dominance** (`analysis/eval2022/C4_GRASS_DOMINANCE.md`, `c4grass_diag.py`, `fig_c4_burnedoff.py`,
+`fig_c4grass_burnedoff_control_1994-2005.png`): not a parameter or tier (the paramfile's x10 C4 values are overridden by hard-coded tiers
+that equal the default); it is the soil state: C4-dominated cells (Sahel, southern Africa, cerrado, N Australia; 6.1 Mkm2 at > 50 %) have
+1.9 g N/m2 of mineral N (C3 grass 33, crops 20, tropical forest 3.0) and a third of the forest fine-root C, so the FUN price is 25 g C per
+g N and nutrient costs remove 39-45 % of pre-cost NPP there.
+
+**Burned-off carbon — new finding**: `NPP_NUPTAKE`/`NPP_PUPTAKE` = pathway costs + `burned_off_carbon` (C the algorithm wanted to spend
+after every soil layer was exhausted; CNFUNMod lines 2834-2878). 1994-2005: P cost 4.92/4.46/4.44 Pg C/yr (archive/control/corrected)
+of which 2.91/3.63/3.61 burned-off (59-81 %), spread over all biomes; N burned-off 0.00/0.22/0.21, 85 % in C4 cells. The paper's
+"1.6 Pg C/yr for P" is a pathway sum; the model removes 4.4-4.9. This must go into the corrigendum (see audit items 26, 31, 33).
+
+**Number-by-number audit** (`analysis/eval2022/paper_numbers_audit.py` -> `paper_numbers_audit.md`): 63 quantitative statements
+(from `paper_sentences_with_numbers.txt`, 137 sentences, results/discussion subset in `paper_claims_results.txt`). Tally: 41 reproduced
+(within the 0.89 text scaling or code-version noise), 17 not reproduced by any product (CUE ~30->~20 %, AM/EcM partitions, C-cost totals,
+Fig 8 biome statistics, N-retranslocation C, MODIS r2/RMSE with the product on disk, spin-up length), 3 not verifiable (ISLSCP II NPP,
+CMIP6 NPP, Fisher 2012 TNL missing), 2 literature. Values changed > 2 % by the corrections: 4 (symbiotic fixation 0 -> 3.13 Tg N/yr,
+total BNF 39.9 -> 43.1, fixation C 0.9 -> 24.9 Tg C/yr, N-acquisition C -4 %).
+
+**ILAMB third run** (`_build_all_1994-2005_v2`, TOTSOMC_1m, ET derived; `ilamb/scores_all_1994-2005.csv`, table appended to
+`ILAMB_vs_paper_fig2.md`): control and corrected equal the archived FUN3.0 within 0.003 on every benchmark; GPP/LAI/NEE/ER/soil C
+reproduce the paper within 0.04; biomass (dataset changed) and ET (GLEAM release) differ; NBP 0.09-0.15 vs paper 0.58-0.61 (budget item).
+Precipitation fails for the archived CMOR files (pr unit '%'); forcing check only.
+
+Open: budget-test analysis; Ashley/Tom emails (drafts ready, awaiting go-ahead); external datasets (ISLSCP II, Fisher 2012, CMIP6);
+corrigendum scope decision; email delivery from CADES unverified.

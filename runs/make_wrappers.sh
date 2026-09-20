@@ -7,7 +7,7 @@ gen(){ # $1 tag $2 casename $3 STOP_N $4 RUN_STARTDATE
 NT=$(grep -o 'compclass="LND">[0-9]*' $CR/$2/env_mach_pes.xml | head -1 | grep -o '[0-9]*$'); NODES=$(( (NT+31)/32 ))
 cat > $W/${P}_$1.sbatch <<EOF
 #!/bin/bash
-#SBATCH -A ccsi -p batch --nodes=$NODES --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00
+#SBATCH -A ccsi -p batch --nodes=$NODES --ntasks-per-node=32 --exclusive --mem=0 --time=10-00:00:00 --exclude=or-condo-c[196-299]
 #SBATCH --job-name=${P}_$1 --output=$LG/${P}_$1.%j.out --mail-user=$MAIL --mail-type=END,FAIL
 source /etc/profile.d/modules.sh 2>/dev/null; module purge; module load python/3.10.14 2>/dev/null
 export PATH=/home/braghiere/bin:/sw/cades-open/python/3.10.14/bin:\$PATH

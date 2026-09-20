@@ -1,4 +1,6 @@
 corr22spin20 AD=5684779 ADJ=5684780 FN=5684781 2026-09-16
-corr22ctl TR=5687518 (continue from r.1910, co2 rcp4.5) 2026-09-18_16:39
-corr22abc TR=5687519 (continue from r.1910, co2 rcp4.5) 2026-09-18_16:39
-REPORT=5687520 (afterok 5687518 5687519) 2026-09-18
+corr22ctl TR=5687521 (continue from r.1910, rcp4.5 CO2, exclude c196+) 2026-09-18_16:44
+corr22abc TR=5687522 (continue from r.1910, rcp4.5 CO2, exclude c196+) 2026-09-18_16:44
+REPORT=5687523 (afterok 5687521 5687522) 2026-09-18
+Submitted batch job 5693293
+Submitted batch job 5693294
