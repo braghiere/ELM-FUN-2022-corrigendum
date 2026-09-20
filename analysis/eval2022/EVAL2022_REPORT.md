@@ -125,3 +125,14 @@ Reading: the corrections switch symbiotic fixation on at a physical price but it
 fixation, far below the 52–130 Tg N/yr of Davies-Barnard & Friedlingstein 2020) because mycorrhizal and root uptake cost 0.2–0.9 gC/gN in
 this model; everything else the paper reports moves by ≤ 5 %. The paper's conclusions about carbon costs, NPP reduction and N–P
 co-limitation stand; the statements about symbiotic fixation (Fig. 5a, the 35.3 Tg N/yr) do not — that flux was free-living fixation.
+
+## Addenda (2026-09-20)
+
+- **Number-by-number audit**: `paper_numbers_audit.md` (63 quantitative statements of the paper against the archive, the control and the
+  corrected run; 41 reproduced, 17 not reproduced by any product, 3 not verifiable here, 2 literature; 4 change with the corrections).
+- **C4-grass dominance and burned-off carbon**: `C4_GRASS_DOMINANCE.md` and `fig_c4grass_burnedoff_control_1994-2005.png`. The total cost
+  variables `NPP_NUPTAKE`/`NPP_PUPTAKE` include carbon spent without acquiring any nutrient (`burned_off_carbon` in CNFUNMod): 2.9–3.6 of
+  the 4.4–4.9 Pg C/yr P cost. The paper's 1.6 Pg C/yr is the pathway sum. C4 grass carries 66 % of the N cost because its soils hold
+  1.9 g N/m2 of mineral N, not because of a parameter or code tier.
+- **ILAMB, all five products** (`ilamb/ILAMB_vs_paper_fig2.md`, third run): control and corrected equal the archived FUN3.0 within 0.003.
+- **Carbon-budget tests** (`runs/srcmods_cbal`, jobs 5693293/5693294): pending; results will be appended here.
