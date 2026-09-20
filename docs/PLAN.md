@@ -275,3 +275,11 @@ Precipitation fails for the archived CMOR files (pr unit '%'); forcing check onl
 
 Open: budget-test analysis; Ashley/Tom emails (drafts ready, awaiting go-ahead); external datasets (ISLSCP II, Fisher 2012, CMIP6);
 corrigendum scope decision; email delivery from CADES unverified.
+- 17:12 first budget-test submission (5693293/94) failed in 6 s: `check_input_data` looks for `domain.nc` (LND_DOMAIN_PATH = own RUNDIR,
+  OLMT style) and the clone's run dir was empty. Copied the control's run-local inputs (domain.nc, surfdata.nc, surfdata.pftdyn.nc,
+  CNP_parameters.nc, clm_params.nc) into both test run dirs; resubmitted as 5693304 (FUN off) and 5693305 (FUN on). Waiters
+  (`analysis/cbal/wait_and_analyze.sh`) re-armed; results go to `analysis/cbal/results_<case>.log` and by mail.
+- 17:29 second submission (5693304/05) died at the driver's "if prognostic surface model must also have atm present" check: `create_clone`
+  + `case.setup --reset` regenerated `Macros.make/Macros.cmake` without the OLMT `-DCPL_BYPASS` define (the check is inside
+  `#ifndef CPL_BYPASS`). Copied the control's Macros into both cases, clean rebuild (`runs/rebuild_and_submit_cbal.sh`), which submits and
+  arms the analysis waiter when the build log shows the define. Lesson for the memory: never `case.setup --reset` an OLMT cpl_bypass clone.
